@@ -1,0 +1,17 @@
+{
+  "name": "electron-quick-start",
+  "version": "0.0.1",
+  "description": "MRS Server Minecraft Launcher",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/Team-IF/MRS-electronjs-launcher",
+  "keywords": [
+  ],
+  "author": "Team IF",
+  "license": "GPL 2.0",
+  "devDependencies": {
+    "electron": "^7.1.9"
+  }
+}
