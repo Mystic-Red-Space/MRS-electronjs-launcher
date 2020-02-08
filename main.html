@@ -1,59 +1,69 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="dropdown.css">
-    <script type="text/javascript" src="https://kit.fontawesome.com/a4fa5c361b.js" crossorigin="anonymous"></script>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="dropdown.css" />
+    <script
+      type="text/javascript"
+      src="https://kit.fontawesome.com/a4fa5c361b.js"
+      crossorigin="anonymous"
+    ></script>
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="jquery.cookie.js"></script>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <div class="sidenav">
-        <div id="profile">
-            <span id="nickname">USERNAME</span>
-        </div>
-        <button type="button"><i class="fas fa-sign-out-alt"></i> 로그아웃</button>
-        <button type="button"><i class="fas fa-sliders-h"></i> 설정</button>
+      <div id="profile">
+        <span id="nickname">USERNAME</span>
+      </div>
+      <button type="button">
+        <i class="fas fa-sign-out-alt"></i> 로그아웃
+      </button>
+      <button type="button"><i class="fas fa-sliders-h"></i> 설정</button>
 
-        <div id="selectedpack">
-            <span style="font-size: 18px;">선택된 모드팩</span>
-            <hr>
-            <img id="modpackimg" src="https://files.mysticrs.tk/default.png" />
-            <br>
-            <span id="packname">Awakening - Reforged</span>
-        </div>
+      <div id="selectedpack">
+        <span style="font-size: 18px;">선택된 모드팩</span>
+        <hr />
+        <img id="modpackimg" src="https://files.mysticrs.tk/default.png" />
+        <br />
+        <span id="packname">Awakening - Reforged</span>
+      </div>
     </div>
 
-    <div class="main">
-
-    </div>
+    <div class="main"></div>
     <div id="footer">
-        <div class="custom-select" style="width:200px;height: 40px;">
-            <select>
-                <option value="0">Select car:</option>
-                <option value="1">Audi</option>
-                <option value="2">BMW</option>
-                <option value="3">Citroen</option>
-                <option value="4">Ford</option>
-                <option value="5">Honda</option>
-                <option value="6">Jaguar</option>
-                <option value="7">Land Rover</option>
-                <option value="8">Mercedes</option>
-                <option value="9">Mini</option>
-                <option value="10">Nissan</option>
-                <option value="11">Toyota</option>
-                <option value="12">Volvo</option>
-            </select>
+      <!-- <div class="custom-select" style="width:200px;height: 40px;">
+        <select>
+          <option value="0">Select car:</option>
+          <option value="1">Audi</option>
+          <option value="2">BMW</option>
+          <option value="3">Citroen</option>
+          <option value="4">Ford</option>
+          <option value="5">Honda</option>
+          <option value="6">Jaguar</option>
+          <option value="7">Land Rover</option>
+          <option value="8">Mercedes</option>
+          <option value="9">Mini</option>
+          <option value="10">Nissan</option>
+          <option value="11">Toyota</option>
+          <option value="12">Volvo</option>
+        </select>
+      </div> -->
+
+      <div class="dropup" style="width:100;height:100;">
+        <button class="dropbtn">Dropup</button>
+        <div class="dropup-content">
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
         </div>
+      </div>
     </div>
+
     <script type="text/javascript" src="common.js"></script>
     <script type="text/javascript" src="mainpage.js"></script>
     <script type="text/javascript" src="dropdown.js"></script>
-
-</body>
-
+  </body>
 </html>
