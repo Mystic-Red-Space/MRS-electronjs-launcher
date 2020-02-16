@@ -17,3 +17,4 @@ function loadToken() {
         return [undefined, undefined, undefined, undefined]
     }
 }
+
