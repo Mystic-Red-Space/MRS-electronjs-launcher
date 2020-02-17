@@ -14,7 +14,8 @@ function createWindow() {
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     },
-    autoHideMenuBar: true
+    autoHideMenuBar: true,
+    show: false
   });
 
   // and load the index.html of the app.
@@ -29,6 +30,9 @@ function createWindow() {
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     mainWindow = null
+  });
+  mainWindow.on('ready-to-show', () => {
+    mainWindow.show();
   })
 }
 
