@@ -59,3 +59,11 @@ function invalidate(token) {
         validateStatus: True
     })
 }
+
+module.exports = {
+    'login': login,
+    'refresh': refresh,
+    'validate': validate,
+    'signout': signout,
+    'invalidate': invalidate
+};
