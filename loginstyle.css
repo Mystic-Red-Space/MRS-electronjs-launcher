@@ -1,0 +1,124 @@
+#bg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+}
+
+#bg img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 50%;
+  min-height: 50%;
+  filter: blur(3px);
+}
+
+::placeholder {
+  color: whitesmoke;
+}
+
+.center-box {
+  position: absolute;
+  width: 400px;
+  height: 500px;
+  left: 50%;
+  top: 50%;
+  margin-left: -200px;
+  margin-top: -250px;
+  background-color: #131313;
+  opacity: 90%;
+  border-radius: 15px;
+}
+
+#logocircle {
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  margin-left: -50px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #a8a8a8;
+  line-height: 100px;
+  text-align: center;
+}
+
+#logocircle img {
+  width: 90px;
+  height: 90px;
+  padding-top: 5px;
+}
+
+#head-box {
+  width: auto;
+  height: 200px;
+}
+
+#login-box {
+  width: auto;
+  height: auto;
+}
+
+#login-box #loginsave {
+  margin-left: 50px;
+  margin-top: 10px;
+  color: whitesmoke;
+}
+
+#id-box,
+#pass-box {
+  display: flex;
+  justify-content: center;
+  background-color: #787878;
+  opacity: 80%;
+  border-radius: 5px;
+  width: 300px;
+  height: 40px;
+  margin-left: 50px;
+}
+
+#pass-box {
+  margin-top: 15px;
+}
+
+#idbox,
+#passbox {
+  border: none;
+  background: transparent;
+  color: whitesmoke;
+  font-size: 20px;
+}
+
+#savelabel {
+  color: whitesmoke;
+  text-align: right;
+}
+
+#footer-box {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  height: 178px;
+}
+
+#btnLogin {
+  height: 80px;
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  margin-top: 30px;
+  outline: none;
+}
+
+#imgLogin {
+  height: inherit;
+}
+
+#imgLogin:hover {
+  content: url('../login_button_enable.png');
+}

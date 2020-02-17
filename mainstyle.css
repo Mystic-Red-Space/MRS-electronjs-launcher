@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+}
+
+.wrapper {
+  overflow: hidden;
+}
+
+.bundle {
+  position: fixed;
+  margin-left: 170px;
+  width: calc(100% - 170px);
+  height: 100%;
+}
+
+.bundle .header {
+  position: fixed;
+  background-color: #373737;
+  top: 0;
+  left: 0;
+  height: 80px;
+  line-height: 80px;
+  text-align: right;
+  z-index: 1;
+  width: 100%;
+}
+
+.sidenav {
+  position: fixed;
+  height: 100%;
+  width: 170px;
+  top: 0;
+  left: 0;
+  background-color: #0e0e0e;
+  overflow-x: hidden;
+  z-index: 1;
+}
+
+.footer {
+  position: fixed;
+  z-index: 1;
+  margin-left: 170px;
+  background-color: #373737;
+  bottom: 0;
+  left: 0;
+  height: 80px;
+  width: calc(100% - 170px);
+  text-align: center;
+}
+
+.section {
+  position: static;
+  z-index: 0;
+}
+
+.section img {
+}
+
+.sidenav #profileCircle {
+  position: absolute;
+  left: 50%;
+  margin-left: -62.5px;
+  top: 30px;
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  background-color: #a8a8a8;
+  line-height: 100px;
+  text-align: center;
+}
+
+.footer #btnPlay {
+  height: inherit;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  text-align: center;
+  outline: none;
+}
+
+.footer #imgPlay {
+  height: inherit;
+}
+
+.footer #imgPlay:hover {
+  content: url("../play_button_enable.png")
+}

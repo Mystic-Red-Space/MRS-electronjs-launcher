@@ -1,44 +1,28 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="dropdown.css" />
-    <script type="text/javascript" src="https://kit.fontawesome.com/a4fa5c361b.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="jquery.min.js"></script>
-    <script type="text/javascript" src="jquery.cookie.js"></script>
+  <meta charset="UTF-8">
+  <title>Main</title>
+  <link rel="stylesheet" href="mainstyle.css">
 </head>
-
 <body>
-    <div class="sidenav">
-        <div id="divLogo">
-            <img id="imgLogo" src="logo.png">
-        </div>
-        <div id="profile">
-
-        </div>
-        <button id="btnSettings" type="button">
-            <i class="fas fa-sliders-h"></i> 설정
-        </button>
-        <button id="btnLogout" type="button">
-            <i class="fas fa-sign-out-alt"></i> 로그아웃
-        </button>
-    </div>
-
-    <div class="main"></div>
-    <div id="header">
-        <span id="nickname">USERNAME</span>
-    </div>
-    <div id="footer">
+  <div class="wrapper">
+    <div class="bundle">
+      <div class="header">
+      </div>
+      <div class="footer">
         <button id="btnPlay" type="button">
-            <img id="imgPlay" src="play_button_disenable.png">
+          <img id="imgPlay" src="../play_button_disenable.png">
         </button>
+      </div>
     </div>
-
-    <script type="text/javascript" src="common.js"></script>
-    <script type="text/javascript" src="mainpage.js"></script>
-    <script type="text/javascript" src="dropdown.js"></script>
+    <div class="sidenav">
+      <div id="profileCircle">
+      </div>
+    </div>
+    <div class="section">
+      <img id="section-bg" src="mainwallpaper.jpg">
+    </div>
+  </div>
 </body>
-
 </html>
