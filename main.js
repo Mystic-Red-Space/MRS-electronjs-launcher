@@ -15,7 +15,8 @@ function createWindow() {
       preload: path.join(__dirname, 'preload.js')
     },
     autoHideMenuBar: true,
-    show: false
+    show: false,
+    frame: false
   });
 
   // and load the index.html of the app.
