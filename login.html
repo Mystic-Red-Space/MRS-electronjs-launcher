@@ -1,52 +1,53 @@
 <!DOCTYPE html>
 <html lang="en" style="-webkit-app-region: drag">
 <head>
-  <link rel="stylesheet" href="loginstyle.css"/>
-  <meta charset="UTF-8"/>
-  <title>MRS Launcher</title>
+    <link rel="stylesheet" href="css/loginstyle.css"/>
+    <meta charset="UTF-8"/>
+    <title>MRS Launcher</title>
 </head>
 <body>
 <div id="bg">
-  <img alt="" draggable="false" src="wallpaper.jpg"/>
+    <img alt="" draggable="false" src="wallpaper.jpg"/>
 </div>
 <div class="center-box">
-      <div id="head-box">
+    <div id="head-box">
         <div id="logocircle">
-          <img src="../logo.png" alt="" />
+            <img src="../logo.png" alt=""/>
         </div>
-      </div>
-      <div id="login-box">
+    </div>
+    <div id="login-box">
         <div id="id-box">
-          <input
-            id="idbox"
-            type="text"
-            name="id"
-            placeholder="e-mail"
-            size="24"
-          />
+            <input
+                    id="idbox"
+                    type="text"
+                    name="id"
+                    placeholder="e-mail"
+                    size="24"
+            />
         </div>
         <div id="pass-box">
-          <input
-            id="passbox"
-            type="password"
-            name="password"
-            placeholder="password"
-            size="24"
-          />
+            <input
+                    id="passbox"
+                    type="password"
+                    name="password"
+                    placeholder="password"
+                    size="24"
+            />
         </div>
         <input
-          id="loginsave"
-          type="checkbox"
-          name="saveinfo"
-          value="로그인 정보 저장"
+                id="loginsave"
+                type="checkbox"
+                name="saveinfo"
+                value="로그인 정보 저장"
         />
         <label id="savelabel" for="loginsave">로그인 정보 저장</label>
-      </div>
-      <div id="footer-box">
-        <button id="btnLogin" type="button">
-          <img alt="" id="imgLogin" src="login_button_disenable.png"/>
-        </button>
-      </div>
     </div>
-  </body>
+    <div id="footer-box">
+        <button id="btnLogin" type="button">
+            <img alt="" id="imgLogin" src="login_button_disenable.png"/>
+        </button>
+    </div>
+</div>
+<script src="js/login.js"></script>
+</body>
 </html>
