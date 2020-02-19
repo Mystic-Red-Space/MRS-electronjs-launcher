@@ -36,6 +36,10 @@ window.onload = function () {
             }
         });
     };
+
+    document.getElementById('btnExit').onclick = function () {
+        window.close();
+    };
     
     function EnsureValidate() {
         const localStorage = storage.tryGetLocalStorage();
