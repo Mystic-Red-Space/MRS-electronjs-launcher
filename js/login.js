@@ -28,7 +28,7 @@ window.onload = function () {
         mclogin.login(id, password).then((res) => {
             const checked = document.getElementById('loginsave').checked;
             storage.setLoginInfo(res.data.accessToken, res.data.clientToken, checked);
-            location.href = './main.html';
+            // location.href = './main.html';
         }).catch((error) => {
             if( error.response.status === 403){
                 document.getElementById('ErrorSpan').textContent = error.response.data.errorMessage;
