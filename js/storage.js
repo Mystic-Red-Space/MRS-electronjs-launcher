@@ -1,30 +1,56 @@
-function setLoginInfo(id, password, islocal = false) {
+function setLoginInfo(accessToken, clientToken, username, islocal = false) {
     if (islocal) {
-        localStorage.setItem('id', id);
-        localStorage.setItem('pwd', password);
-    } else {
-        sessionStorage.setItem('id', id);
-        sessionStorage.setItem('pwd', password);
+        localStorage.setItem('accessToken', accessToken);
+        localStorage.setItem('clientToken', clientToken);
+        localStorage.setItem('username', username);
+    }
+    sessionStorage.setItem('accessToken', accessToken);
+    sessionStorage.setItem('clientToken', clientToken);
+    sessionStorage.setItem('username', username);
+}
+
+function getLoginInfo() {
+    return {
+        'accessToken': sessionStorage.getItem('accessToken'),
+        'clientToken': sessionStorage.getItem('clientToken'),
+        'username': sessionStorage.getItem('username')
+    };
+}
+
+function tryGetLocalStorage() {
+    const accessToken = localStorage.getItem('accessToken');
+    const clientToken = localStorage.getItem('clientToken');
+    const username = localStorage.getItem('username');
+    if (!accessToken && !clientToken && !username) {
+        removeLocalStorage();
+        return;
+    }
+    return {
+        'accessToken': accessToken,
+        'clientToken': clientToken,
+        'username': username
     }
 }
 
-function getLoginInfo(islocal = false) {
-    let info = [];
-    if (islocal) {
-        info[0] = localStorage.getItem('id');
-        info[1] = localStorage.getItem('pwd');
-    } else {
-        info[0] = sessionStorage.getItem('id');
-        info[1] = sessionStorage.getItem('pwd');
+function removeLocalStorage() {
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('clientToken');
+    localStorage.removeItem('username');
+}
+
+function clonLocaltoSession() {
+    const localStorage = tryGetLocalStorage();
+    if (localStorage) {
+        sessionStorage.setItem('accessToken', localStorage.accessToken);
+        sessionStorage.setItem('clientToken', localStorage.clientToken);
+        sessionStorage.setItem('username', localStorage.username);
     }
-
-    if (info.length === 0)
-        return undefined;
-
-    return info;
 }
 
 module.exports = {
     setLoginInfo,
-    getLoginInfo
+    getLoginInfo,
+    tryGetLocalStorage,
+    clonLocaltoSession,
+    removeLocalStorage
 };

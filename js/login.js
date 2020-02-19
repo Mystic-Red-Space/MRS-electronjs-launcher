@@ -1,8 +1,8 @@
 const mclogin = require("./js/auth");
-const storage = require("./storage");
+const storage = require("./js/storage");
 
 window.onload = function () {
-    CheckLocalStorage();
+    EnsureValidate();
 
     document.querySelector('#pass-box i').onclick = function (){
         const passbox = document.getElementById('passbox');
@@ -27,8 +27,8 @@ window.onload = function () {
         }
         mclogin.login(id, password).then((res) => {
             const checked = document.getElementById('loginsave').checked;
-            storage.setLoginInfo(id, password, checked);
-            location.href = '../main.html';
+            storage.setLoginInfo(res.data.accessToken, res.data.clientToken, checked);
+            location.href = './main.html';
         }).catch((error) => {
             if( error.response.status === 403){
                 document.getElementById('ErrorSpan').textContent = error.response.data.errorMessage;
@@ -36,4 +36,20 @@ window.onload = function () {
             }
         });
     };
+    
+    function EnsureValidate() {
+        const localStorage = storage.tryGetLocalStorage();
+        if (!localStorage)
+            return;
+        mclogin.validate(localStorage.accessToken)
+            .then((res) => {
+                if (res.status === 204) {
+                    storage.clonLocaltoSession();
+                    location.href = '../main.html';
+                }
+            })
+            .catch((err) => {
+                storage.removeLocalStorage();
+            });
+    }
 };

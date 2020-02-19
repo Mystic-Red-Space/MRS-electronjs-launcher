@@ -35,8 +35,6 @@ function validate(token) {
     return axios.post('https://authserver.mojang.com/validate', {
         "accessToken": token,
         "clientToken": clientToken
-    }, {
-        validateStatus: True
     })
 }
 
@@ -59,9 +57,9 @@ function invalidate(token) {
 }
 
 module.exports = {
-    'login': login,
-    'refresh': refresh,
-    'validate': validate,
-    'signout': signout,
-    'invalidate': invalidate
+    login,
+    refresh,
+    validate,
+    signout,
+    invalidate
 };
