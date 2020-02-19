@@ -19,8 +19,6 @@ function login(id, password) {
         "password": password,
         "clientToken": clientToken,
         "requestUser": false
-    }, {
-        validateStatus: True
     });
 }
 

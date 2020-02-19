@@ -83,5 +83,5 @@ body {
 }
 
 .footer #imgPlay:hover {
-  content: url("../play_button_enable.png")
+  content: url("../img/play_button_enable.png")
 }

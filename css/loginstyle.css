@@ -59,6 +59,17 @@
   height: 200px;
 }
 
+#ErrorSpan {
+  position: absolute;
+  text-decoration: none;
+  font-size: 15px;
+  color: red;
+  width: 100%;
+  height: 20px;
+  top: 165px;
+  text-align: center;
+}
+
 #login-box {
   width: auto;
   height: auto;
@@ -74,24 +85,38 @@
 #pass-box {
   display: flex;
   justify-content: center;
-  background-color: #787878;
+  background-color: #1b1b1b;
   opacity: 80%;
   border-radius: 5px;
   width: 300px;
   height: 40px;
   margin-left: 50px;
+  border: 2px solid #3498DB;
+  transition: 0.25s;
+}
+
+#id-box:focus-within, #pass-box:focus-within {
+  border-color: #2ecc71;
 }
 
 #pass-box {
   margin-top: 15px;
 }
 
+#pass-box i {
+  position: absolute;
+  outline: none;
+  left: 320px;
+  margin-top: 12px;
+}
+
 #idbox,
 #passbox {
-  border: none;
   background: transparent;
   color: whitesmoke;
   font-size: 20px;
+  outline: none;
+  border: none;
 }
 
 #savelabel {
@@ -120,7 +145,7 @@
 }
 
 #imgLogin:hover {
-  content: url('../login_button_enable.png');
+  content: url('../img/login_button_enable.png');
 }
 
 button {

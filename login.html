@@ -1,53 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" style="-webkit-app-region: drag">
 <head>
+    <script src="https://kit.fontawesome.com/fe80c14db8.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/loginstyle.css"/>
     <meta charset="UTF-8"/>
     <title>MRS Launcher</title>
 </head>
 <body>
 <div id="bg">
-    <img alt="" draggable="false" src="wallpaper.jpg"/>
+    <img alt="" draggable="false" src="img/wallpaper.jpg"/>
 </div>
 <div class="center-box">
     <div id="head-box">
         <div id="logocircle">
-            <img src="../logo.png" alt=""/>
+            <img src="img/logo.png" alt=""/>
         </div>
+        <span id="ErrorSpan"></span>
     </div>
     <div id="login-box">
         <div id="id-box">
-            <input
-                    id="idbox"
-                    type="text"
-                    name="id"
-                    placeholder="e-mail"
-                    size="24"
-            />
+            <input id="idbox" type="text" name="id" placeholder="e-mail" size="24"/>
         </div>
         <div id="pass-box">
-            <input
-                    id="passbox"
-                    type="password"
-                    name="password"
-                    placeholder="password"
-                    size="24"
-            />
+            <input id="passbox" type="password" name="password" placeholder="password" size="24"/>
+            <i class="far fa-eye"></i>
         </div>
-        <input
-                id="loginsave"
-                type="checkbox"
-                name="saveinfo"
-                value="로그인 정보 저장"
-        />
-        <label id="savelabel" for="loginsave">로그인 정보 저장</label>
+        <input id="loginsave" type="checkbox" name="saveinfo" value="로그인 정보 저장"/>
+        <label id="savelabel" for="loginsave">Save Login</label>
     </div>
     <div id="footer-box">
         <button id="btnLogin" type="button">
-            <img alt="" id="imgLogin" src="login_button_disenable.png"/>
+            <img alt="" id="imgLogin" src="img/login_button_disenable.png"/>
         </button>
     </div>
+    <script type="text/javascript" src="js/login.js"></script>
 </div>
-<script src="js/login.js"></script>
 </body>
 </html>
