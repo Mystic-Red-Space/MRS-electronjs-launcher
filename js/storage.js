@@ -1,9 +1,10 @@
-function setLoginInfo(accessToken, clientToken, username, islocal = false) {
+function setLoginInfo(accessToken, clientToken, username, uuid, islocal = false) {
     if (islocal) {
         localStorage.setItem('accessToken', accessToken);
         localStorage.setItem('clientToken', clientToken);
         localStorage.setItem('username', username);
     }
+    localStorage.setItem('uuid', uuid);
     sessionStorage.setItem('accessToken', accessToken);
     sessionStorage.setItem('clientToken', clientToken);
     sessionStorage.setItem('username', username);
@@ -11,6 +12,7 @@ function setLoginInfo(accessToken, clientToken, username, islocal = false) {
 
 function getLoginInfo() {
     return {
+        'uuid': localStorage.getItem('uuid'),
         'accessToken': sessionStorage.getItem('accessToken'),
         'clientToken': sessionStorage.getItem('clientToken'),
         'username': sessionStorage.getItem('username')

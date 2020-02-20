@@ -25,11 +25,13 @@ body {
   line-height: 30px;
   background-color: #323232;
   z-index: 1;
-  text-align: right;
 }
 
 .draggable-header button {
+  position: absolute;
   height: inherit;
+  top: 0;
+  right: 0;
   width: 30px;
   background-color: transparent;
   border: none;

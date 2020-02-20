@@ -2,8 +2,66 @@ body {
   margin: 0;
 }
 
+.draggable-header {
+  position: fixed;
+  -webkit-app-region: drag;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  background-color: #323232;
+  z-index: 2;
+}
+
+.draggable-header img {
+  position: absolute;
+  top: 50%;
+  transform: translate(0px, -50%);
+  height: 20px;
+  left: 5px;
+}
+
+.draggable-header button {
+  position: fixed;
+  height: inherit;
+  top: 0;
+  right: 5px;
+  width: 30px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  -webkit-app-region: no-drag;
+}
+
+.draggable-header #btnFullSize {
+  position: fixed;
+  right: 35px;
+}
+
+.draggable-header button:hover {
+  background-color: #4d4d4d;
+}
+
+.draggable-header #btnExit:hover {
+  background-color: darkred;
+}
+
+.draggable-header i {
+  color: whitesmoke;
+}
+
+.draggable-header span {
+  position: fixed;
+  color: whitesmoke;
+  left: 30px;
+  font-size: 15px;
+}
+
 .wrapper {
   overflow: hidden;
+  position: fixed;
+  top: 30px;
+  width: 100%;
+  height: 100%;
 }
 
 .bundle {
@@ -18,7 +76,7 @@ body {
   background-color: #373737;
   top: 0;
   left: 0;
-  height: 80px;
+  height: 100px;
   line-height: 80px;
   text-align: right;
   z-index: 1;
@@ -36,7 +94,62 @@ body {
   z-index: 1;
 }
 
+.sidenav #profileCircle {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: 55px;
+  width: 100px;
+  height: 100px;
+  border-radius: 15px;
+  background-color: #a8a8a8;
+  line-height: 100px;
+  text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.sidenav p {
+  margin: 0;
+  position: absolute;
+  color: whitesmoke;
+  left: 50%;
+  transform: translate(-50%);
+  top: 170px;
+  width: inherit;
+  font-weight: bold;
+  font-size: 20px;
+  word-break:break-word;
+  text-align: center;
+}
+
+#btnLogout {
+  position: fixed;
+  bottom: 0;
+  height: 80px;
+  width: inherit;
+  background-color: #262626;
+  border: none;
+  outline: none;
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.5s;
+}
+
+#btnLogout:hover {
+  background-color: #333333;
+}
+
 .footer {
+  position: absolute;
+  bottom: 0;
+  height: 160px;
+  line-height: 160px;
+  width: 100%;
+}
+
+.footer-box {
   position: fixed;
   z-index: 1;
   margin-left: 170px;
@@ -53,33 +166,23 @@ body {
   height: 100%;
   width: 100%;
   margin-left: -5px;
-  z-index: -1;
+  z-index: 0;
   background-image: url("../img/mainwallpaper.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   filter: blur(3px);
 }
 
-.sidenav #profileCircle {
-  position: absolute;
-  left: 50%;
-  margin-left: -62.5px;
-  top: 30px;
-  width: 125px;
-  height: 125px;
-  border-radius: 50%;
-  background-color: #a8a8a8;
-  line-height: 100px;
-  text-align: center;
-}
-
 .footer #btnPlay {
-  height: inherit;
+  position: absolute;
+  top: 10px;
+  height: 80px;
   background-color: transparent;
   border: none;
-  margin: 0;
-  text-align: center;
   outline: none;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 1;
 }
 
 .footer #imgPlay {

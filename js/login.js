@@ -4,6 +4,16 @@ const storage = require("./js/storage");
 window.onload = function () {
     EnsureValidate();
 
+    document.getElementById('btnExit').onclick = function () {
+        window.close();
+    };
+
+    document.getElementById('passbox').onkeyup = function (event) {
+        if (event.code === "Enter") {
+            BtnLogin();
+        }
+    };
+
     document.querySelector('#pass-box i').onclick = function (){
         const passbox = document.getElementById('passbox');
         passbox.classList.toggle('active');
@@ -18,7 +28,9 @@ window.onload = function () {
         }
     };
 
-    document.getElementById('btnLogin').onclick = function () {
+    document.getElementById('btnLogin').onclick = BtnLogin;
+
+    function BtnLogin() {
         const id = document.getElementById("idbox").value;
         const passbox = document.getElementById("passbox");
         const password = passbox.value;
@@ -27,19 +39,15 @@ window.onload = function () {
         }
         mclogin.login(id, password).then((res) => {
             const checked = document.getElementById('loginsave').checked;
-            storage.setLoginInfo(res.data.accessToken, res.data.clientToken, checked);
-            // location.href = './main.html';
+            storage.setLoginInfo(res.data.accessToken, res.data.clientToken, res.data.selectedProfile.name, res.data.selectedProfile.id, checked);
+            location.href = './main.html';
         }).catch((error) => {
             if( error.response.status === 403){
                 document.getElementById('ErrorSpan').textContent = error.response.data.errorMessage;
                 passbox.select();
             }
         });
-    };
-
-    document.getElementById('btnExit').onclick = function () {
-        window.close();
-    };
+    }
     
     function EnsureValidate() {
         const localStorage = storage.tryGetLocalStorage();
