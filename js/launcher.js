@@ -3,7 +3,7 @@ const auth = require('./js/auth');
 const { remote } = require('electron');
 
 window.onload = function () {
-    document.getElementById('profileCircle').style.backgroundImage = `url("https://crafatar.com/avatars/${storage.getLoginInfo().uuid}")`;
+    document.getElementById('profileCircle').style.backgroundImage = `url("https://crafatar.com/avatars/${storage.getLoginInfo().uuid}?overlay")`;
     document.getElementById('userName').innerHTML = storage.getLoginInfo().username;
     document.getElementById('btnExit').onclick = function () {
         window.close();
