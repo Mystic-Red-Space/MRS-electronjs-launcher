@@ -24,22 +24,36 @@ body {
   height: 30px;
   line-height: 30px;
   background-color: #323232;
+  text-align: right;
   z-index: 1;
 }
 
 .draggable-header button {
-  position: absolute;
+  position: relative;
   height: inherit;
-  top: 0;
-  right: 0;
+  top: -2px;
   width: 30px;
   background-color: transparent;
   border: none;
   outline: none;
+  -webkit-app-region: no-drag;
+  text-align: center;
 }
 
 .draggable-header button:hover {
   background-color: #4d4d4d;
+}
+
+.draggable-header #btnExit:hover {
+  background-color: darkred;
+}
+
+.draggable-header img {
+  position: absolute;
+  top: 50%;
+  transform: translate(0px, -50%);
+  height: 20px;
+  left: 5px;
 }
 
 .draggable-header i {
@@ -49,7 +63,7 @@ body {
 .draggable-header span {
   position: fixed;
   color: whitesmoke;
-  left: 7px;
+  left: 30px;
   font-size: 15px;
 }
 

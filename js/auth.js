@@ -51,8 +51,6 @@ function invalidate(token) {
     return axios.post('https://authserver.mojang.com/invalidate', {
         "accessToken": token,
         "clientToken": clientToken
-    }, {
-        validateStatus: True
     })
 }
 

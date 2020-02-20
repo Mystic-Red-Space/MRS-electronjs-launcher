@@ -1,11 +1,20 @@
 const mclogin = require("./js/auth");
 const storage = require("./js/storage");
+const { remote } = require('electron');
 
 window.onload = function () {
     EnsureValidate();
 
     document.getElementById('btnExit').onclick = function () {
         window.close();
+    };
+    document.getElementById('btnFullSize').onclick = function () {
+        const window = remote.getCurrentWindow();
+        window.isMaximized() ? window.unmaximize() : window.maximize();
+    };
+    document.getElementById('btnMiniSize').onclick = function () {
+        const window = remote.getCurrentWindow();
+        window.minimize();
     };
 
     document.getElementById('passbox').onkeyup = function (event) {
@@ -57,7 +66,7 @@ window.onload = function () {
             .then((res) => {
                 if (res.status === 204) {
                     storage.clonLocaltoSession();
-                    location.href = '../main.html';
+                    location.href = './main.html';
                 }
             })
             .catch((err) => {

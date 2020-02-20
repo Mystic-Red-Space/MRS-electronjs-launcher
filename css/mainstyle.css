@@ -10,6 +10,7 @@ body {
   line-height: 30px;
   background-color: #323232;
   z-index: 2;
+  text-align: right;
 }
 
 .draggable-header img {
@@ -21,20 +22,15 @@ body {
 }
 
 .draggable-header button {
-  position: fixed;
+  position: relative;
   height: inherit;
-  top: 0;
-  right: 5px;
+  top: -2px;
   width: 30px;
   background-color: transparent;
   border: none;
   outline: none;
   -webkit-app-region: no-drag;
-}
-
-.draggable-header #btnFullSize {
-  position: fixed;
-  right: 35px;
+  text-align: center;
 }
 
 .draggable-header button:hover {

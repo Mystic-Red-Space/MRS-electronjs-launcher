@@ -34,10 +34,18 @@ function tryGetLocalStorage() {
     }
 }
 
+function removeAllStorage() {
+    sessionStorage.removeItem('accessToken');
+    sessionStorage.removeItem('clientToken');
+    sessionStorage.removeItem('username');
+    removeLocalStorage();
+}
+
 function removeLocalStorage() {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('clientToken');
     localStorage.removeItem('username');
+    localStorage.removeItem('uuid');
 }
 
 function clonLocaltoSession() {
@@ -54,5 +62,6 @@ module.exports = {
     getLoginInfo,
     tryGetLocalStorage,
     clonLocaltoSession,
-    removeLocalStorage
+    removeLocalStorage,
+    removeAllStorage
 };
