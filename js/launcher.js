@@ -1,5 +1,5 @@
-const storage = require('js/storage');
-const auth = require('js/auth');
+const storage = require('./js/storage');
+const auth = require('./js/auth');
 const {remote} = require('electron');
 
 window.onload = function () {
