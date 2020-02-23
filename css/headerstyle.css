@@ -1,3 +1,7 @@
+@font-face { font-family: 'NanumGothic';
+    src: url('/fonts/NanumGothic.eot');
+    src: url('/fonts/NanumGothic.eot') format('embedded-opentype'),
+    url('/fonts/NanumGothic.woff') format('woff');}
 .draggable-header {
     position: fixed;
     top: 0;
@@ -8,7 +12,7 @@
     background-color: #323232;
     z-index: 2;
     text-align: right;
-    color: white;
+    font-family: 'NanumGothic', 'serif';
 }
 
 .draggable-header img {
@@ -48,4 +52,5 @@
     color: whitesmoke;
     left: 30px;
     font-size: 15px;
+    font-family: 'NanumGothic', 'serif';
 }

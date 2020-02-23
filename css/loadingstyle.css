@@ -1,3 +1,7 @@
+@font-face { font-family: 'NanumGothic';
+    src: url('/fonts/NanumGothic.eot');
+    src: url('/fonts/NanumGothic.eot') format('embedded-opentype'),
+    url('/fonts/NanumGothic.woff') format('woff');}
 body {
     margin: 0;
     padding: 0;
@@ -14,7 +18,7 @@ body {
     height: 200px;
     box-sizing: border-box;
     border-radius: 50%;
-    border-top: 10px solid #e74c3c;
+    border-top: 10px solid #c1514d;
     position: relative;
     animation: a1 2s linear infinite;
 }
@@ -31,12 +35,12 @@ body {
 }
 
 .loading::before {
-    border-top: 10px solid #e67e22;
+    border-top: 10px solid #f29545;
     transform: rotate(120deg);
 }
 
 .loading::after {
-    border-top: 10px solid #3498db;
+    border-top: 10px solid #7f7f7f;
     transform: rotate(240deg);
 }
 
@@ -45,6 +49,7 @@ body {
     width: 200px;
     height: 200px;
     color: #fff;
+    font-family: 'NanumGothic', 'serif';
     text-align: center;
     line-height: 200px;
     animation: a2 2s linear infinite;

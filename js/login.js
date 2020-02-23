@@ -3,8 +3,6 @@ const storage = require("./js/storage");
 const {loadheader} = require("./js/header");
 
 window.onload = function () {
-    EnsureValidate();
-
     loadheader();
 
     document.getElementById('passbox').onkeyup = function (event) {

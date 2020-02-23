@@ -1,3 +1,7 @@
+@font-face { font-family: 'NanumGothic';
+  src: url('/fonts/NanumGothic.eot');
+  src: url('/fonts/NanumGothic.eot') format('embedded-opentype'),
+  url('/fonts/NanumGothic.woff') format('woff');}
 body {
   margin: 0;
 }
@@ -41,6 +45,7 @@ body {
   background-color: #a8a8a8;
   line-height: 100px;
   text-align: center;
+  font-family: 'NanumGothic', 'serif';
 }
 
 #logocircle img {
@@ -63,6 +68,7 @@ body {
   height: 20px;
   top: 165px;
   text-align: center;
+  font-family: 'NanumGothic', 'serif';
 }
 
 #login-box {
@@ -113,11 +119,13 @@ body {
   font-size: 20px;
   outline: none;
   border: none;
+  font-family: 'NanumGothic', 'serif';
 }
 
 #savelabel {
   color: whitesmoke;
   text-align: right;
+  font-family: 'NanumGothic', 'serif';
 }
 
 #footer-box {
@@ -134,6 +142,8 @@ body {
   text-align: center;
   margin-top: 30px;
   outline: none;
+  font-family: 'NanumGothic', 'serif';
+  
 }
 
 #imgLogin {

@@ -9,9 +9,10 @@ window.onload = function () {
 
 function EnsureValidate() {
     const localStorage = storage.tryGetLocalStorage();
-    if (!localStorage)
+    if (!localStorage){
         location.href = './login.html';
         return;
+    }
     mclogin.validate(localStorage.accessToken)
         .then((res) => {
             if (res.status === 204) {
