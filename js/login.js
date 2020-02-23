@@ -1,6 +1,6 @@
 const mclogin = require("./js/auth");
 const storage = require("./js/storage");
-const { remote } = require('electron');
+const {remote} = require('electron');
 
 window.onload = function () {
     EnsureValidate();
@@ -23,17 +23,17 @@ window.onload = function () {
         }
     };
 
-    document.querySelector('#pass-box i').onclick = function (){
+    document.querySelector('#pass-box i').onclick = function () {
         const passbox = document.getElementById('passbox');
         passbox.classList.toggle('active');
-        if(passbox.classList.contains('active')){
+        if (passbox.classList.contains('active')) {
             document.querySelector('#pass-box i')
                 .setAttribute('class', 'fa fa-eye-slash');
-            passbox.setAttribute('type',"text");
-        }else{
+            passbox.setAttribute('type', "text");
+        } else {
             document.querySelector('#pass-box i')
-                .setAttribute('class',"fa fa-eye");
-            passbox.setAttribute('type','password');
+                .setAttribute('class', "fa fa-eye");
+            passbox.setAttribute('type', 'password');
         }
     };
 
@@ -51,13 +51,13 @@ window.onload = function () {
             storage.setLoginInfo(res.data.accessToken, res.data.clientToken, res.data.selectedProfile.name, res.data.selectedProfile.id, checked);
             location.href = './main.html';
         }).catch((error) => {
-            if( error.response.status === 403){
+            if (error.response.status === 403) {
                 document.getElementById('ErrorSpan').textContent = error.response.data.errorMessage;
                 passbox.select();
             }
         });
     }
-    
+
     function EnsureValidate() {
         const localStorage = storage.tryGetLocalStorage();
         if (!localStorage)
