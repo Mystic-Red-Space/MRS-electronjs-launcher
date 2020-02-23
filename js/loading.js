@@ -1,5 +1,6 @@
 const {loadheader} = require("./js/header");
 const storage = require("./js/storage");
+const mclogin = require("./js/auth");
 
 window.onload = function () {
     EnsureValidate();
