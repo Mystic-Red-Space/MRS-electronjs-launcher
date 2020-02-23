@@ -3,38 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <title>Main</title>
-  <link rel="stylesheet" href="css/mainstyle.css">
-  <script src="https://kit.fontawesome.com/fe80c14db8.js" crossorigin="anonymous"></script>
+  <link href="css/mainstyle.css" rel="stylesheet">
+  <script crossorigin="anonymous" src="https://kit.fontawesome.com/fe80c14db8.js"></script>
+  <link href="css/headerstyle.css" rel="stylesheet">
 </head>
 <body>
-  <div class="draggable-header">
-    <img src="img/logo.png">
-    <span>MRS Launcher</span>
-    <button id="btnMiniSize"><i class="far fa-window-minimize"></i></button>
-    <button id="btnFullSize"><i class="far fa-square"></i></button>
-    <button id="btnExit"><i class="fas fa-times"></i></button>
-  </div>
-  <div class="wrapper">
-    <div class="bundle">
-      <div class="header">
-      </div>
-      <div class="footer">
-        <div class="footer-box"></div>
-        <button id="btnPlay" type="button">
-          <img id="imgPlay" src="img/play_button_disenable.png">
-        </button>
-      </div>
-      <div class="section"></div>
+<div class="draggable-header">
+  <img src="img/logo.png">
+  <span>MRS Launcher</span>
+  <button id="btnMiniSize"><i class="far fa-window-minimize"></i></button>
+  <button id="btnFullSize"><i class="far fa-square"></i></button>
+  <button id="btnExit"><i class="fas fa-times"></i></button>
+</div>
+<div class="wrapper">
+  <div class="bundle">
+    <div class="header">
     </div>
-    <div class="sidenav">
-      <div id="profileCircle"></div>
-      <p id="userName"></p>
-      <button id="btnLogout" type="button">
-        <i class="fas fa-sign-out-alt"></i>
-        로그아웃
+    <div class="footer">
+      <div class="footer-box"></div>
+      <button id="btnPlay" type="button">
+        <img id="imgPlay" src="img/play_button_disenable.png">
       </button>
     </div>
+    <div class="section"></div>
   </div>
-<script type="text/javascript" src="./js/launcher.js"></script>
+  <div class="sidenav">
+    <div id="profileCircle"></div>
+    <p id="userName"></p>
+    <button id="btnLogout" type="button">
+      <i class="fas fa-sign-out-alt"></i>
+      로그아웃
+    </button>
+  </div>
+</div>
+<script src="./js/launcher.js" type="text/javascript"></script>
 </body>
 </html>

@@ -1,0 +1,50 @@
+.draggable-header {
+    position: fixed;
+    top: 0;
+    -webkit-app-region: drag;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    background-color: #323232;
+    z-index: 2;
+    text-align: right;
+}
+
+.draggable-header img {
+    position: absolute;
+    top: 50%;
+    transform: translate(0px, -50%);
+    height: 20px;
+    left: 5px;
+}
+
+.draggable-header button {
+    position: relative;
+    height: inherit;
+    top: -2px;
+    width: 30px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    -webkit-app-region: no-drag;
+    text-align: center;
+}
+
+.draggable-header button:hover {
+    background-color: #4d4d4d;
+}
+
+.draggable-header #btnExit:hover {
+    background-color: darkred;
+}
+
+.draggable-header i {
+    color: whitesmoke;
+}
+
+.draggable-header span {
+    position: fixed;
+    color: whitesmoke;
+    left: 30px;
+    font-size: 15px;
+}

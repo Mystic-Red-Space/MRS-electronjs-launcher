@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" style="-webkit-app-region: drag">
+<html lang="en">
 <head>
-    <script src="https://kit.fontawesome.com/fe80c14db8.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/loginstyle.css"/>
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/fe80c14db8.js"></script>
+    <link href="css/loginstyle.css" rel="stylesheet"/>
     <meta charset="UTF-8"/>
     <title>MRS Launcher</title>
+    <link href="css/headerstyle.css" rel="stylesheet">
 </head>
 <body>
 <div class="draggable-header">
@@ -18,27 +19,27 @@
 <div class="center-box">
     <div id="head-box">
         <div id="logocircle">
-            <img src="img/logo.png" alt=""/>
+            <img alt="" src="img/logo.png"/>
         </div>
         <span id="ErrorSpan"></span>
     </div>
     <div id="login-box">
         <div id="id-box">
-            <input id="idbox" type="text" name="id" placeholder="e-mail" size="24"/>
+            <input id="idbox" name="id" placeholder="e-mail" size="24" type="text"/>
         </div>
         <div id="pass-box">
-            <input id="passbox" type="password" name="password" placeholder="password" size="24"/>
+            <input id="passbox" name="password" placeholder="password" size="24" type="password"/>
             <i class="far fa-eye"></i>
         </div>
-        <input id="loginsave" type="checkbox" name="saveinfo" value="로그인 정보 저장"/>
-        <label id="savelabel" for="loginsave">Save Login</label>
+        <input id="loginsave" name="saveinfo" type="checkbox" value="로그인 정보 저장"/>
+        <label for="loginsave" id="savelabel">Save Login</label>
     </div>
     <div id="footer-box">
         <button id="btnLogin" type="button">
             <img alt="" id="imgLogin" src="img/login_button_disenable.png"/>
         </button>
     </div>
-    <script type="text/javascript" src="js/login.js"></script>
+    <script src="js/login.js" type="text/javascript"></script>
 </div>
 </body>
 </html>
