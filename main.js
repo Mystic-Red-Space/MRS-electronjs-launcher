@@ -7,6 +7,7 @@ const path = require('path');
 let mainWindow;
 
 function createWindow() {
+  // const icon = new Tray("img/logo.png");
   // Create the browser window.
   mainWindow = new BrowserWindow({
     minWidth: 800,
@@ -17,7 +18,10 @@ function createWindow() {
     },
     autoHideMenuBar: true,
     show: false,
-    frame: false
+    frame: false,
+    backgroundColor: "#373737",
+    title: "MRS Launcher",
+    // icon: icon
   });
 
   // and load the index.html of the app.
@@ -58,3 +62,6 @@ app.on('activate', function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+app.on('page-title-updated', function (event, title) {
+  event.preventDefault()
+});
