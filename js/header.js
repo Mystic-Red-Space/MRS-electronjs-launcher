@@ -12,12 +12,6 @@ function loadheader() {
         const window = remote.getCurrentWindow();
         window.minimize();
     };
-    document.getElementById('btnLogout').onclick = function () {
-        const info = storage.getLoginInfo();
-        auth.invalidate(info.accessToken);
-        storage.removeAllStorage();
-        location.href = './login.html';
-    };
 }
 
 module.exports = {
