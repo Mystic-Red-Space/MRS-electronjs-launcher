@@ -5,6 +5,7 @@ const mclogin = require("./js/auth");
 window.onload = function () {
     EnsureValidate();
     loadheader();
+};
 
 function EnsureValidate() {
     const localStorage = storage.tryGetLocalStorage();
