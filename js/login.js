@@ -1,21 +1,11 @@
 const mclogin = require("./js/auth");
 const storage = require("./js/storage");
-const {remote} = require('electron');
+const {loadheader} = require("./js/header");
 
 window.onload = function () {
     EnsureValidate();
 
-    document.getElementById('btnExit').onclick = function () {
-        window.close();
-    };
-    document.getElementById('btnFullSize').onclick = function () {
-        const window = remote.getCurrentWindow();
-        window.isMaximized() ? window.unmaximize() : window.maximize();
-    };
-    document.getElementById('btnMiniSize').onclick = function () {
-        const window = remote.getCurrentWindow();
-        window.minimize();
-    };
+    loadheader();
 
     document.getElementById('passbox').onkeyup = function (event) {
         if (event.code === "Enter") {
