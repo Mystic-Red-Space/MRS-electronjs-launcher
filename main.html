@@ -5,6 +5,7 @@
   <title>Main</title>
   <link href="css/mainstyle.css" rel="stylesheet">
   <script crossorigin="anonymous" src="https://kit.fontawesome.com/fe80c14db8.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <link href="css/headerstyle.css" rel="stylesheet">
 </head>
 <body>
@@ -21,7 +22,7 @@
     </div>
     <div class="footer">
       <div class="footer-box"></div>
-      <button id="btnPlay" type="button">
+      <button id="btnPlay" type="button" v-on:click="play()">
         <img id="imgPlay" src="img/play_button_disenable.png">
       </button>
     </div>

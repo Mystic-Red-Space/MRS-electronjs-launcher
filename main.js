@@ -1,6 +1,9 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron');
 const path = require('path');
+const { Client, Authenticator } = require('minecraft-launcher-core');
+const launcher = new Client();
+const Vue = require('vue');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -65,3 +68,31 @@ app.on('activate', function () {
 app.on('page-title-updated', function (event, title) {
     event.preventDefault()
 });
+
+let opts = {
+    clientPackage: null,
+    // For production launchers, I recommend not passing 
+    // the getAuth function through the authorization field and instead
+    // handling authentication outside before you initialize
+    // MCLC so you can handle auth based errors and validation!
+    authorization: Authenticator.getAuth("username", "password"),
+    installer: "./minecraft",
+    root: "./minecraft",
+    version: {
+        number: "1.12.2",
+        type: "release"
+    },
+    memory: {
+        max: "16000",
+        min: "2000"
+    }
+}
+
+var play = new Vue({ 
+    el: "#btnPlay", 
+    methods:{
+      play: function () {
+          launcher.launch(opts);
+      }
+    }
+})
