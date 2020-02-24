@@ -1,4 +1,4 @@
-# mrs-electron-launcher
+# mrs-electronjs-launcher
 
 > Minecraft modpack launcher of MRS Minecraft server
 
@@ -14,9 +14,6 @@ npm run dev
 # build electron application for production
 npm run build
 
-
-# lint all JS/Vue component files in `src/`
-npm run lint
 
 ```
 
