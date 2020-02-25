@@ -25,7 +25,8 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true
     },
-    show: false
+    show: false,
+    frame: false
   });
 
   mainWindow.loadURL(winURL);

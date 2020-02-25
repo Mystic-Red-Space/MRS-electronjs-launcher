@@ -1,7 +1,9 @@
-@font-face { font-family: 'NanumGothic';
-    src: url('../NanumGothic.eot');
-    src: url('../NanumGothic.eot') format('embedded-opentype'),
-    url('../NanumGothic.woff') format('woff');}
+@font-face {
+    font-family: 'NanumGothic';
+    src: url('../../NanumGothic.eot');
+    src: url('../../NanumGothic.eot') format('embedded-opentype'),
+    url('../../NanumGothic.woff') format('woff');
+}
 .draggable-header {
     position: fixed;
     top: 0;
@@ -13,6 +15,7 @@
     z-index: 2;
     text-align: right;
     font-family: 'NanumGothic', 'serif';
+    -webkit-user-select: none;
 }
 
 .draggable-header img {

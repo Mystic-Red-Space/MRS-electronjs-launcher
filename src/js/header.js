@@ -1,6 +1,6 @@
 const {remote} = require('electron');
 
-function loadheader() {
+export default function loadheader() {
     document.getElementById('btnExit').onclick = function () {
         window.close();
     };
