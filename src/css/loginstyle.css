@@ -1,8 +1,6 @@
 @font-face {
     font-family: 'NanumGothic';
-    src: url('../../NanumGothic.eot');
-    src: url('../../NanumGothic.eot') format('embedded-opentype'),
-    url('../../NanumGothic.woff') format('woff');
+    src: url('../../NanumGothic.ttf');
 }
 body {
   margin: 0;
