@@ -12,11 +12,8 @@
 </template>
 
 <script>
-  import loadheader from "../js/header.js"
-
   export default {
     name: 'mrs-electronjs-launcher',
-    loadheader
   }
 
 </script>
