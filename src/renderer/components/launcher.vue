@@ -23,8 +23,19 @@
 </template>
 
 <script>
+    const storage = require('../../js/storage');
+    const auth = require('../../js/auth');
     export default {
-        name: "main"
+        name: "launcher",
+        methods: {
+            loadpage: function () {
+                document.getElementById('profileCircle').style.backgroundImage = `url("https://crafatar.com/avatars/${storage.getLoginInfo().uuid}?overlay")`;
+                document.getElementById('userName').innerHTML = storage.getLoginInfo().username;
+            }
+        },
+        beforeMount() {
+            this.loadpage();
+        }
     }
 </script>
 
