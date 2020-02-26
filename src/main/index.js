@@ -18,15 +18,17 @@ function createWindow() {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
-    height: 563,
+    height: 600,
     useContentSize: true,
-    width: 1000,
+    width: 800,
     autoHideMenuBar: true,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      webSecurity: false
     },
     show: false,
-    frame: false
+    frame: false,
+    backgroundColor: "#373737"
   });
 
   mainWindow.loadURL(winURL);

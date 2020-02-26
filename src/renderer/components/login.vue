@@ -14,13 +14,13 @@
                 </div>
                 <div id="pass-box">
                     <input id="passbox" name="password" placeholder="password" size="24" type="password"/>
-                    <i class="far fa-eye"></i>
+                    <font-awesome-icon icon="eye" id="eye"/>
                 </div>
                 <input id="loginsave" name="saveinfo" type="checkbox" value="로그인 정보 저장"/>
                 <label for="loginsave" id="savelabel">Save Login</label>
             </div>
             <div id="footer-box">
-                <button id="btnLogin" type="button">
+                <button id="btnLogin" type="button" v-on:click="BtnLogin">
                     <img alt="" id="imgLogin" src="src/img/login_button_disenable.png"/>
                 </button>
             </div>
@@ -29,8 +29,30 @@
 </template>
 
 <script>
+    const mclogin = require("../../js/auth");
+    const storage = require("../../js/storage");
     export default {
-        name: "login"
+        name: "login",
+        methods: {
+            BtnLogin: function (event) {
+                const id = document.getElementById("idbox").value;
+                const passbox = document.getElementById("passbox");
+                const password = passbox.value;
+                if (!id || !password) {
+                    return;
+                }
+                mclogin.login(id, password).then((res) => {
+                    const checked = document.getElementById('loginsave').checked;
+                    storage.setLoginInfo(res.data.accessToken, res.data.clientToken, res.data.selectedProfile.name, res.data.selectedProfile.id, checked);
+                    this.$router.push('main');
+                }).catch((error) => {
+                    if (error.response.status === 403) {
+                        document.getElementById('ErrorSpan').textContent = error.response.data.errorMessage;
+                        passbox.select();
+                    }
+                });
+            }
+        }
     }
 </script>
 
