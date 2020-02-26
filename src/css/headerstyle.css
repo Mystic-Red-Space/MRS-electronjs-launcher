@@ -46,10 +46,6 @@
     background-color: darkred;
 }
 
-.draggable-header i {
-    color: whitesmoke;
-}
-
 .draggable-header span {
     position: fixed;
     color: whitesmoke;
