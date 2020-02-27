@@ -33,7 +33,7 @@
                 document.getElementById('userName').innerHTML = storage.getLoginInfo().username;
             }
         },
-        Mount() {
+        mounted() {
             this.loadpage();
         }
     }
