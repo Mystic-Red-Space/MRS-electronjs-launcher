@@ -18,7 +18,7 @@ body {
 }
 
 ::placeholder {
-  color: whitesmoke;
+  color: gray;
 }
 
 .center-box {

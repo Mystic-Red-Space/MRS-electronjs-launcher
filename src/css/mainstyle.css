@@ -124,7 +124,7 @@ body {
   background-image: url("../img/mainwallpaper.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  filter: blur(3px);
+  //filter: blur(3px);
 }
 
 .footer #btnPlay {

@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div id="app" >
         <div class="draggable-header">
             <img src="../img/logo.png">
             <span>MRS Launcher</span>
@@ -7,7 +7,7 @@
                 <font-awesome-icon color="whitesmoke" icon="window-minimize"/>
             </button>
             <button id="btnFullSize" v-on:click="winmax">
-                <font-awesome-icon color="whitesmoke" icon="window-maximize"/>
+                <font-awesome-icon color="whitesmoke" :icon="windowstat"/>
             </button>
             <button id="btnExit" v-on:click="winclose">
                 <font-awesome-icon color="whitesmoke" icon="times"/>
@@ -21,14 +21,16 @@
     const {remote} = require('electron');
     export default {
         name: 'mrs-electronjs-launcher',
-        props: {},
+        data() {
+            return {windowstat: "window-maximize"}
+        },
         methods: {
             winmax: function (event) {
-                const window = remote.getCurrentWindow();
-                if (window.isMaximized()) {
-                    window.unmaximize();
+                const browserWindow = remote.getCurrentWindow();
+                if (browserWindow.isMaximized()) {
+                    browserWindow.unmaximize();
                 } else {
-                    window.maximize();
+                    browserWindow.maximize();
                 }
             },
             winmini: function (event) {
@@ -39,7 +41,22 @@
             },
             winclose: function (event) {
                 window.close()
+            },
+            loadheader: function (event) {
+                const browserWindow = remote.getCurrentWindow();
+                if (browserWindow.isMaximized()) {
+                    this.windowstat="window-restore"
+                } else {
+                    this.windowstat="window-maximize"
+                }
             }
+        },
+        mounted() {
+            window.addEventListener('resize',this.loadheader);
+            this.loadheader();
+        },
+        beforeDestroy() {
+            window.removeEventListener('resize',this.loadheader);
         }
     }
 

@@ -14,7 +14,7 @@
         <div class="sidenav">
             <div id="profileCircle"></div>
             <p id="userName"></p>
-            <button id="btnLogout" type="button">
+            <button id="btnLogout" type="button" v-on:click="logout">
                 <font-awesome-icon icon="sign-out-alt"/>
                 로그아웃
             </button>
@@ -31,6 +31,12 @@
             loadpage: function () {
                 document.getElementById('profileCircle').style.backgroundImage = `url("https://crafatar.com/avatars/${storage.getLoginInfo().uuid}?overlay")`;
                 document.getElementById('userName').innerHTML = storage.getLoginInfo().username;
+            },
+            logout: function () {
+                const info = storage.getLoginInfo();
+                auth.invalidate(info.accessToken);
+                storage.removeAllStorage();
+                this.$router.push('login');
             }
         },
         mounted() {

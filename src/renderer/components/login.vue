@@ -14,7 +14,7 @@
                 </div>
                 <div id="pass-box">
                     <input id="passbox" name="password" placeholder="password" size="24" type="password"/>
-                    <font-awesome-icon icon="eye" id="eye"/>
+                    <font-awesome-icon icon="eye" :icon="eyeshape" id="eye" v-on:click="TogglePass"/>
                 </div>
                 <input id="loginsave" name="saveinfo" type="checkbox" value="로그인 정보 저장"/>
                 <label for="loginsave" id="savelabel">Save Login</label>
@@ -33,6 +33,9 @@
     const storage = require("../../js/storage");
     export default {
         name: "login",
+        data() {
+            return {eyeshape: "eye"}
+        },
         methods: {
             BtnLogin: function (event) {
                 const id = document.getElementById("idbox").value;
@@ -44,13 +47,24 @@
                 mclogin.login(id, password).then((res) => {
                     const checked = document.getElementById('loginsave').checked;
                     storage.setLoginInfo(res.data.accessToken, res.data.clientToken, res.data.selectedProfile.name, res.data.selectedProfile.id, checked);
-                    this.$router.push('main');
+                    this.$router.push('launcher');
                 }).catch((error) => {
                     if (error.response.status === 403) {
                         document.getElementById('ErrorSpan').textContent = error.response.data.errorMessage;
                         passbox.select();
                     }
                 });
+            },
+            TogglePass: function (event) {
+                const passbox = document.getElementById('passbox');
+                passbox.classList.toggle('active');
+                if (passbox.classList.contains('active')) {
+                    this.eyeshape="eye-slash";
+                    passbox.setAttribute('type', "text");
+                } else {
+                    this.eyeshape="eye";
+                    passbox.setAttribute('type', 'password');
+                }
             }
         }
     }
