@@ -1,7 +1,11 @@
 import {Installer} from "@xmcl/installer";
-import {MinecraftLocation, ResolvedVersion, Version} from "@xmcl/core";
+import {MinecraftLocation} from "@xmcl/core";
 
-const minecraft: MinecraftLocation;
-const version: string; // version string like 1.13
-const resolvedVersion: ResolvedVersion = await Version.parse(version);
-await Installer.installAssets(resolvedVersion);
+async function testlaunch() {
+    const minecraft: MinecraftLocation = "./minecraft";
+    const list: Installer.VersionList = await Installer.getVersionList();
+    const aVersion: Installer.Version = list[0]; // i just pick the first version in list here
+    await Installer.install("client", aVersion, minecraft);
+}
+
+testlaunch();
