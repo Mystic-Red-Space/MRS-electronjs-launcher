@@ -19,7 +19,7 @@
                     .then((res) => {
                         if (res.status === 204) {
                             storage.clonLocaltoSession();
-                            this.$router.push('main');
+                            this.$router.push('launcher');
                         }
                     })
                     .catch((err) => {
