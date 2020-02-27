@@ -4,7 +4,7 @@
         <div class="center-box">
             <div id="head-box">
                 <div id="logocircle">
-                    <img alt="" src="src/img/logo.png"/>
+                    <img :src="logo" alt=""/>
                 </div>
                 <span id="ErrorSpan"></span>
             </div>
@@ -21,7 +21,7 @@
             </div>
             <div id="footer-box">
                 <button id="btnLogin" type="button" v-on:click="BtnLogin">
-                    <img alt="" id="imgLogin" src="src/img/login_button_disenable.png"/>
+                    <img :src="loginbutton" alt="" id="imgLogin"/>
                 </button>
             </div>
         </div>
@@ -29,12 +29,16 @@
 </template>
 
 <script>
-    const mclogin = require("../../js/auth");
-    const storage = require("../../js/storage");
+    const mclogin = require("./js/auth");
+    const storage = require("./js/storage");
     export default {
         name: "login",
         data() {
-            return {eyeshape: "eye"}
+            return {
+                eyeshape: "eye",
+                loginbutton: "static/img/login_button_disenable.png",
+                logo: "static/img/logo.png"
+            }
         },
         methods: {
             BtnLogin: function (event) {

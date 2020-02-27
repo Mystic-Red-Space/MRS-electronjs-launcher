@@ -7,7 +7,7 @@ body {
 }
 
 #bg {
-  background-image: url("../img/wallpaper.jpg");
+  background-image: url("../../static/img/wallpaper.jpg");
   position: fixed;
   top: 23px;
   left: -5px;
@@ -151,7 +151,7 @@ body {
 }
 
 #imgLogin:hover {
-  content: url('../img/login_button_enable.png');
+  content: url('../../static/img/login_button_enable.png');
 }
 
 button {

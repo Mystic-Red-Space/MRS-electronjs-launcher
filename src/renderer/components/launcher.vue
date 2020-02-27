@@ -6,7 +6,7 @@
             <div class="footer">
                 <div class="footer-box"></div>
                 <button id="btnPlay" type="button">
-                    <img id="imgPlay" src="src/img/play_button_disenable.png">
+                    <img :src="play" id="imgPlay">
                 </button>
             </div>
             <div class="section"></div>
@@ -23,10 +23,13 @@
 </template>
 
 <script>
-    const storage = require('../../js/storage');
-    const auth = require('../../js/auth');
+    const storage = require('./js/storage');
+    const auth = require('./js/auth');
     export default {
         name: "launcher",
+        data() {
+            return {play: "static/img/play_button_disenable.png"}
+        },
         methods: {
             loadpage: function () {
                 document.getElementById('profileCircle').style.backgroundImage = `url("https://crafatar.com/avatars/${storage.getLoginInfo().uuid}?overlay")`;

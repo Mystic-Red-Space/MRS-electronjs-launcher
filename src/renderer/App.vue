@@ -1,7 +1,7 @@
 <template>
     <div id="app" >
         <div class="draggable-header">
-            <img src="../img/logo.png">
+            <img src="static/img/logo.png">
             <span>MRS Launcher</span>
             <button id="btnMiniSize" v-on:click="winmini">
                 <font-awesome-icon color="whitesmoke" icon="window-minimize"/>

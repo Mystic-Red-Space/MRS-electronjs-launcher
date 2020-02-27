@@ -4,8 +4,8 @@
 </template>
 
 <script>
-    const storage = require("../../js/storage");
-    const mclogin = require("../../js/auth");
+    const storage = require("./js/storage");
+    const mclogin = require("./js/auth");
     export default {
         name: "load",
         methods: {

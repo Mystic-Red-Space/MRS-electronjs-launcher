@@ -121,10 +121,10 @@ body {
   width: 100%;
   margin-left: -5px;
   z-index: 0;
-  background-image: url("../img/mainwallpaper.jpg");
+  background-image: url("../../static/img/mainwallpaper.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  //filter: blur(3px);
+/ / filter: blur(3 px);
 }
 
 .footer #btnPlay {
@@ -144,5 +144,5 @@ body {
 }
 
 .footer #imgPlay:hover {
-  content: url("../img/play_button_enable.png")
+  content: url("../../static/img/play_button_enable.png")
 }
