@@ -37,7 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 var installer_1 = require("@xmcl/installer");
-function testlaunch() {
+function testinstall() {
     return __awaiter(this, void 0, void 0, function () {
         var minecraft, list, aVersion;
         return __generator(this, function (_a) {
@@ -56,4 +56,4 @@ function testlaunch() {
         });
     });
 }
-testlaunch();
+testinstall();
