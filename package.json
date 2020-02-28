@@ -62,6 +62,7 @@
     "@xmcl/gamesetting": "^2.0.1-alpha.1",
     "@xmcl/installer": "^2.2.0",
     "@xmcl/java-installer": "^0.1.1",
+    "@xmcl/minecraft-launcher-core": "^1.3.2",
     "@xmcl/mod-parser": "^2.0.1",
     "@xmcl/resourcepack": "^1.0.6",
     "@xmcl/server-info": "^2.0.1-alpha.1",
