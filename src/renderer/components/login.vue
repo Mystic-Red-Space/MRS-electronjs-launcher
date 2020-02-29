@@ -13,10 +13,11 @@
                     <input id="idbox" name="id" placeholder="e-mail" size="24" type="text"/>
                 </div>
                 <div id="pass-box">
-                    <input id="passbox" name="password" placeholder="password" size="24" type="password"/>
-                    <font-awesome-icon icon="eye" :icon="eyeshape" id="eye" v-on:click="TogglePass"/>
+                    <input @keyup="EnterPass" id="passbox" name="password" placeholder="password" size="24"
+                           type="password"/>
+                    <font-awesome-icon :icon="eyeshape" @click="TogglePass" icon="eye" id="eye"/>
                 </div>
-                <input id="loginsave" name="saveinfo" type="checkbox" value="로그인 정보 저장"/>
+                <input checked id="loginsave" name="saveinfo" type="checkbox" value="로그인 정보 저장"/>
                 <label for="loginsave" id="savelabel">Save Login</label>
             </div>
             <div id="footer-box">
@@ -59,14 +60,19 @@
                     }
                 });
             },
+            EnterPass: function (event) {
+                if (event.code === "Enter") {
+                    this.BtnLogin(event);
+                }
+            },
             TogglePass: function (event) {
                 const passbox = document.getElementById('passbox');
                 passbox.classList.toggle('active');
                 if (passbox.classList.contains('active')) {
-                    this.eyeshape="eye-slash";
+                    this.eyeshape = "eye-slash";
                     passbox.setAttribute('type', "text");
                 } else {
-                    this.eyeshape="eye";
+                    this.eyeshape = "eye";
                     passbox.setAttribute('type', 'password');
                 }
             }
