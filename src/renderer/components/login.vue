@@ -36,7 +36,7 @@
         name: "login",
         data() {
             return {
-                eyeshape: "eye",
+                eyeshape: "eye-slash",
                 loginbutton: "static/img/login_button_disenable.png",
                 logo: "static/img/logo.png"
             }
@@ -69,10 +69,10 @@
                 const passbox = document.getElementById('passbox');
                 passbox.classList.toggle('active');
                 if (passbox.classList.contains('active')) {
-                    this.eyeshape = "eye-slash";
+                    this.eyeshape = "eye";
                     passbox.setAttribute('type', "text");
                 } else {
-                    this.eyeshape = "eye";
+                    this.eyeshape = "eye-slash";
                     passbox.setAttribute('type', 'password');
                 }
             }

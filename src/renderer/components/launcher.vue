@@ -4,7 +4,8 @@
             <div class="header">
             </div>
             <div class="footer">
-                <div class="footer-box"></div>
+                <div class="footer-box">
+                </div>
                 <button id="btnPlay" type="button">
                     <img :src="play" id="imgPlay">
                 </button>
@@ -28,7 +29,13 @@
     export default {
         name: "launcher",
         data() {
-            return {play: "static/img/play_button_disenable.png"}
+            return {
+                play: "static/img/play_button_disenable.png",
+                // simple example of items
+                items: ['Item 1', 'Item 2', 'Item 3'],
+                // there will be a selected item
+                selected: null
+            }
         },
         methods: {
             loadpage: function () {
@@ -42,6 +49,7 @@
                 this.$router.push('login');
             }
         },
+        components: {},
         mounted() {
             this.loadpage();
         }
