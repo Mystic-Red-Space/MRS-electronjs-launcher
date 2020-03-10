@@ -32,7 +32,13 @@
     export default {
         name: "launcher",
         data() {
-            return {play: "static/img/play_button_disenable.png"}
+            return {
+                play: "static/img/play_button_disenable.png",
+                // simple example of items
+                items: ['Item 1', 'Item 2', 'Item 3'],
+                // there will be a selected item
+                selected: null
+            }
         },
         methods: {
             loadpage: function () {
@@ -54,6 +60,7 @@
                 client.launch(Authentication.offline("jamfong0627"));
             }
         },
+        components: {},
         mounted() {
             this.loadpage();
         }
