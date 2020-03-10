@@ -24,7 +24,7 @@
 
 <script>
     const {MinecraftClient} = require('minecraft-client');
-    const {Authentication} = require('minecraft-client')
+    const {Authentication} = require('minecraft-client');
     const {CurseForgeMod, CustomForgeMod, ForgeMod} = require('minecraft-client');
     const {InstallationProgress} = require('minecraft-client');
     const storage = require('./js/storage');
@@ -52,12 +52,15 @@
                 this.$router.push('login');
             },
             launch: async function () {
-                let MinecraftClient = await MinecraftClient.getForgeClient("1.14.4", "last", {
-                gameDir: '../../../minecraft'
-                });
+                let client = await MinecraftClient.getMinecraftClient("1.14", {
+                    gameDir: require('path').resolve('minecraft')
+                }, InstallationProgress.callback(currentStep => {
+                    console.log(currentStep)
+                }, progress => {
+
+                }));
                 await client.checkInstallation();
-                console.log(client.checkInstallation());
-                client.launch(Authentication.offline("jamfong0627"));
+                await client.launch(await Authentication.refresh(storage.getLoginInfo().accessToken));
             }
         },
         components: {},
