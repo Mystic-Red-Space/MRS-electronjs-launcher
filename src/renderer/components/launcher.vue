@@ -23,10 +23,10 @@
 </template>
 
 <script>
-    const {MinecraftClient} = require('minecraft-client');
-    const {Authentication} = require('minecraft-client');
-    const {CurseForgeMod, CustomForgeMod, ForgeMod} = require('minecraft-client');
-    const {InstallationProgress} = require('minecraft-client');
+    const {MinecraftClient} = require('@eneris/minecraft-client');
+    const {Authentication} = require('@eneris/minecraft-client');
+    const {CurseForgeMod, CustomForgeMod, ForgeMod} = require('@eneris/minecraft-client');
+    const {InstallationProgress} = require('@eneris/minecraft-client');
     const storage = require('./js/storage');
     const auth = require('./js/auth');
     export default {
