@@ -5,7 +5,7 @@
             </div>
             <div class="footer">
                 <div class="footer-box"></div>
-                <button id="btnPlay" type="button">
+                <button id="btnPlay" type="button" v-on:click="launch">
                     <img :src="play" id="imgPlay">
                 </button>
             </div>
@@ -23,6 +23,10 @@
 </template>
 
 <script>
+    const {MinecraftClient} = require('minecraft-client');
+    const {Authentication} = require('minecraft-client')
+    const {CurseForgeMod, CustomForgeMod, ForgeMod} = require('minecraft-client');
+    const {InstallationProgress} = require('minecraft-client');
     const storage = require('./js/storage');
     const auth = require('./js/auth');
     export default {
@@ -40,6 +44,14 @@
                 auth.invalidate(info.accessToken);
                 storage.removeAllStorage();
                 this.$router.push('login');
+            },
+            launch: async function () {
+                let MinecraftClient = await MinecraftClient.getForgeClient("1.14.4", "last", {
+                gameDir: '../../../minecraft'
+                });
+                await client.checkInstallation();
+                console.log(client.checkInstallation());
+                client.launch(Authentication.offline("jamfong0627"));
             }
         },
         mounted() {
