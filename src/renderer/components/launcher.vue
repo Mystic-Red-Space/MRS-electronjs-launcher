@@ -33,20 +33,9 @@
         name: "launcher",
         data() {
             return {
-                play: "static/img/play_button_disenable.png",
-                // simple example of items
-                items: ['Item 1', 'Item 2', 'Item 3'],
-                // there will be a selected item
-                selected: null
+                play: "static/img/play_button_disenable.png"
             }
         },
-        name: "SelectBox",
-        data() {
-            return {
-                //
-            };
-        },
-        props: ['value', 'items', 'input_id'],
         methods: {
             loadpage: function () {
                 document.getElementById('profileCircle').style.backgroundImage = `url("https://crafatar.com/avatars/${storage.getLoginInfo().uuid}?overlay")`;
@@ -57,9 +46,6 @@
                 auth.invalidate(info.accessToken);
                 storage.removeAllStorage();
                 this.$router.push('login');
-            },
-            updateValue: function (value) {
-                this.$emit('input', value);
             },
             launch: async function () {
                 let client = await MinecraftClient.getMinecraftClient("1.14", {
