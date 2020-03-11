@@ -17,19 +17,35 @@ function createWindow() {
   /**
    * Initial window options
    */
-  mainWindow = new BrowserWindow({
-    height: 600,
-    useContentSize: true,
-    width: 800,
-    autoHideMenuBar: true,
-    webPreferences: {
-      nodeIntegration: true,
-      webSecurity: false
-    },
-    show: false,
-    frame: false,
-    backgroundColor: "#373737"
-  });
+  if (process.platform !== 'darwin') {
+    mainWindow = new BrowserWindow({
+      height: 600,
+      useContentSize: true,
+      width: 800,
+      autoHideMenuBar: true,
+      webPreferences: {
+        nodeIntegration: true,
+        webSecurity: false
+      },
+      frame: false,
+      show: false,
+      backgroundColor: "#373737"
+    });
+  } else {
+    mainWindow = new BrowserWindow({
+      height: 600,
+      useContentSize: true,
+      width: 800,
+      autoHideMenuBar: true,
+      webPreferences: {
+        nodeIntegration: true,
+        webSecurity: false
+      },
+      titleBarStyle: 'hidden',
+      show: false,
+      backgroundColor: "#373737"
+    });
+  }
 
   mainWindow.loadURL(winURL);
   mainWindow.once("ready-to-show", () => {
