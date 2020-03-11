@@ -1,6 +1,6 @@
 <template>
     <div id="app" >
-        <div class="draggable-header">
+        <div v-if="process.platform !== 'darwin'" class="draggable-header">
             <img src="static/img/logo.png">
             <span>MRS Launcher</span>
             <button id="btnMiniSize" v-on:click="winmini">
