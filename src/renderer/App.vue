@@ -1,6 +1,6 @@
 <template>
     <div id="app" >
-        <div v-if="process.platform !== 'darwin'" class="draggable-header">
+        <div v-if="showheader" class="draggable-header">
             <img src="static/img/logo.png">
             <span>MRS Launcher</span>
             <button id="btnMiniSize" v-on:click="winmini">
@@ -22,7 +22,10 @@
     export default {
         name: 'mrs-electronjs-launcher',
         data() {
-            return {windowstat: "window-maximize"}
+            return {
+                windowstat: "window-maximize",
+                showheader: process.platform !== 'darwin'
+            }
         },
         methods: {
             winmax: function (event) {

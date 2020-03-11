@@ -8,12 +8,6 @@
                 <button id="btnPlay" type="button" v-on:click="launch">
                     <img :src="play" id="imgPlay">
                 </button>
-                <SelectBox
-                    v-model="this.value"
-                    :items="somethings"
-                    :input_id="'my_selectbox'"
-                    @input="value => { preselect_value = value }"
-                ></SelectBox>
             </div>
             <div class="section"></div>
         </div>
