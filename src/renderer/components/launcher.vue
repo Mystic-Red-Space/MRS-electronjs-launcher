@@ -4,11 +4,16 @@
             <div class="header">
             </div>
             <div class="footer">
-                <div class="footer-box">
-                </div>
-                <button id="btnPlay" type="button">
+                <div class="footer-box"></div>
+                <button id="btnPlay" type="button" v-on:click="launch">
                     <img :src="play" id="imgPlay">
                 </button>
+                <SelectBox
+                    v-model="this.value"
+                    :items="somethings"
+                    :input_id="'my_selectbox'"
+                    @input="value => { preselect_value = value }"
+                ></SelectBox>
             </div>
             <div class="section"></div>
         </div>
@@ -24,6 +29,10 @@
 </template>
 
 <script>
+    const {MinecraftClient} = require('@eneris/minecraft-client');
+    const {Authentication} = require('@eneris/minecraft-client');
+    const {CurseForgeMod, CustomForgeMod, ForgeMod} = require('@eneris/minecraft-client');
+    const {InstallationProgress} = require('@eneris/minecraft-client');
     const storage = require('./js/storage');
     const auth = require('./js/auth');
     export default {
@@ -37,6 +46,13 @@
                 selected: null
             }
         },
+        name: "SelectBox",
+        data() {
+            return {
+                //
+            };
+        },
+        props: ['value', 'items', 'input_id'],
         methods: {
             loadpage: function () {
                 document.getElementById('profileCircle').style.backgroundImage = `url("https://crafatar.com/avatars/${storage.getLoginInfo().uuid}?overlay")`;
@@ -47,6 +63,20 @@
                 auth.invalidate(info.accessToken);
                 storage.removeAllStorage();
                 this.$router.push('login');
+            },
+            updateValue: function (value) {
+                this.$emit('input', value);
+            },
+            launch: async function () {
+                let client = await MinecraftClient.getMinecraftClient("1.14", {
+                    gameDir: require('path').resolve('minecraft')
+                }, InstallationProgress.callback(currentStep => {
+                    console.log(currentStep)
+                }, progress => {
+
+                }));
+                await client.checkInstallation();
+                await client.launch(await Authentication.refresh(storage.getLoginInfo().accessToken));
             }
         },
         components: {},
