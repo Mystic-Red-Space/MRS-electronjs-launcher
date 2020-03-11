@@ -51,9 +51,9 @@
                 let client = await MinecraftClient.getMinecraftClient("1.14", {
                     gameDir: require('path').resolve('minecraft')
                 }, InstallationProgress.callback(currentStep => {
-                    console.log(currentStep)
+                    console.log(currentStep);
                 }, progress => {
-
+                    console.log(progress);
                 }));
                 await client.checkInstallation();
                 await client.launch(await Authentication.refresh(storage.getLoginInfo().accessToken));
