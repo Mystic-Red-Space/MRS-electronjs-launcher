@@ -6,15 +6,18 @@ import router from './router'
 import store from './store'
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {
-  faEye,
-  faEyeSlash,
-  faSignOutAlt,
-  faTimes,
-  faWindowMaximize,
-  faWindowMinimize,
-  faWindowRestore
+    faEye,
+    faEyeSlash,
+    faSignOutAlt,
+    faTimes,
+    faWindowMaximize,
+    faWindowMinimize,
+    faWindowRestore
 } from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
+import vSelect from 'vue-select'
+
+Vue.component('v-select', vSelect);
 
 library.add(faWindowMinimize, faWindowMaximize, faTimes, faWindowRestore, faSignOutAlt, faEye, faEyeSlash);
 
@@ -26,8 +29,8 @@ Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 new Vue({
-  components: {App},
-  router,
-  store,
-  template: '<App/>'
+    components: {App},
+    router,
+    store,
+    template: '<App/>'
 }).$mount('#app');

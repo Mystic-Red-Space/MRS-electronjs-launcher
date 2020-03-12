@@ -4,7 +4,9 @@
             <div class="header">
             </div>
             <div class="footer">
-                <div class="footer-box"></div>
+                <div class="footer-box">
+
+                </div>
                 <button id="btnPlay" type="button" v-on:click="launch">
                     <img :src="play" id="imgPlay">
                 </button>
