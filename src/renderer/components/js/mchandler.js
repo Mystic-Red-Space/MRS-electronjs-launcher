@@ -27,13 +27,19 @@ async function installmodpack(modpack) {
     console.log(forgever)
     console.log(serveraddress)
     console.log(gamedir)
-    let client = await MinecraftClient.getForgeClient(version,forgever,{
+    let client = await MinecraftClient.getForgeClient(version, forgever, {
         gameDir: gamedir,
-    },InstallationProgress.callback(currentStep => {
+    }, InstallationProgress.callback(currentStep => {
         console.log(currentStep);
     }, progress => {
         console.log(progress);
     }))
+    await client.ensureServersDat(
+        {
+            host: serveraddress,
+            port: 25565
+        }
+    )
     await client.checkInstallation();
 }
 
