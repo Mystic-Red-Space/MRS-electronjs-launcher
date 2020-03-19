@@ -6,7 +6,7 @@ const storage = require('./storage');
 const axios = require('axios').default;
 
 
-async function installmodpack(modpack) {
+async function installmodpack(modpack, token, uuid, username,mem) {
     var version;
     var forgever;
     var serveraddress;
@@ -18,16 +18,16 @@ async function installmodpack(modpack) {
                 version = element.version
                 forgever = element.forge
                 serveraddress = element.server
-                gamedir = require('path').resolve(modpack)
+                gamedir = require('path').resolve("instances/" + modpack)
             }
         }
     )
     rawmodlist = await axios.get('https://api.mysticrs.tk/mods?name=' + modpack);
-    modlist = rawpacklist.data;
-    console.log(version)
-    console.log(forgever)
-    console.log(serveraddress)
-    console.log(gamedir)
+    modlist = rawmodlist.data;
+    var modslist = [];
+    modlist.forEach((element) => {
+        modslist.push(new CustomForgeMod(element.name, element.name, element.url, element.sha1))
+    })
     let client = await MinecraftClient.getForgeClient(version, forgever, {
         gameDir: gamedir,
     }, InstallationProgress.callback(currentStep => {
@@ -38,11 +38,32 @@ async function installmodpack(modpack) {
     await client.ensureServersDat(
         {
             host: serveraddress,
-            port: 25565
+            name: modpack
+        }
+    )
+    await client.checkInstallation()
+    await client.checkMods(modslist)
+    await client.launch(
+        {
+            token: token,
+            uuid: uuid,
+            name: username,
+            result: true,
+            errorCause: null,
+            errorMessage: null,
+            errorType: null
+        },
+        {
+            memory: mem
         }
     )
 }
 
 module.exports = {
     installmodpack
+}
+
+async function test(id, pass) {
+    cred = await require("./auth.js").login(id, pass)
+    await installmodpack("Minimalism", cred.data.accessToken, cred.data.uuid, cred.data.username,"8G")
 }

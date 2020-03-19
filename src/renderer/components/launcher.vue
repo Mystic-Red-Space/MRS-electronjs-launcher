@@ -25,13 +25,10 @@
 </template>
 
 <script>
-    const {MinecraftClient} = require('@eneris/minecraft-client');
-    const {Authentication} = require('@eneris/minecraft-client');
-    const {CurseForgeMod, CustomForgeMod, ForgeMod} = require('@eneris/minecraft-client');
-    const {InstallationProgress} = require('@eneris/minecraft-client');
     const storage = require('./js/storage');
     const auth = require('./js/auth');
-    const mchandler = require('./js/mchandler')
+    const {installmodpack} = require('./js/mchandler');
+    const info = storage.getLoginInfo();
     export default {
         name: "launcher",
         data() {
@@ -45,15 +42,12 @@
                 document.getElementById('userName').innerHTML = storage.getLoginInfo().username;
             },
             logout: function () {
-                const info = storage.getLoginInfo();
                 auth.invalidate(info.accessToken);
                 storage.removeAllStorage();
                 this.$router.push('login');
             },
-            launch: function () {
-                mchandler.installmodpack('minimalism')
-                await client.checkInstallation();
-                await client.launch(await Authentication.refresh(storage.getLoginInfo().accessToken));
+            launch: async function () {
+                await installmodpack("Minimalism", info.accessToken, info.uuid, info.username, "4G")
             }
         },
         components: {},
