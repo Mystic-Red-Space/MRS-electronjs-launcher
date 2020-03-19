@@ -62,7 +62,7 @@
   resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-0.1.9.tgz#d3af6d4e50f337327de90447fe35fa1e117a2fbe"
   integrity sha512-h/emhmZz+DfB2zOGLWawNwXq82UYhn9waTfUjLLmeaIqtnIyNt6kYlpQT/vzJjLZRDRvY2IEJAh1di5qKpKVpA==
 
-"@iarna/toml@2.2.3", "@iarna/toml@^2.2.3":
+"@iarna/toml@^2.2.3":
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/@iarna/toml/-/toml-2.2.3.tgz#f060bf6eaafae4d56a7dac618980838b0696e2ab"
   integrity sha512-FmuxfCuolpLl0AnQ2NHSzoUKWEJDFl63qXjzdoWBVyFCXzMGm1spBzk7LeHNoVCiWCF7mRVms9e6jEV9+MoPbg==
@@ -352,13 +352,6 @@
     jszip "^3.2.2"
     long "^3.2.0"
 
-"@xmcl/core@^2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@xmcl/core/-/core-2.0.2.tgz#e947409e504f4462dffc5b50b3f0dedc6b500a8a"
-  integrity sha512-Jk3pdBdiYFtKxdcS0XkQX5f7agyd1TUwzmor2Ldiw+1zLkHSWSSKNsZlcsgNtUGmmjEzAmnXk9+nlaKBR7t+hQ==
-  dependencies:
-    "@xmcl/unzip" "^1.0.5-alpha.1"
-
 "@xmcl/fabric@^1.1.3":
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@xmcl/fabric/-/fabric-1.1.3.tgz#f8d78057b8273486013eb77ce633725536ca985c"
@@ -382,13 +375,6 @@
     fast-html-parser "^1.0.1"
     got "^9.6.0"
 
-"@xmcl/forge-site-parser@^2.0.2-alpha.1":
-  version "2.0.2-alpha.1"
-  resolved "https://registry.yarnpkg.com/@xmcl/forge-site-parser/-/forge-site-parser-2.0.2-alpha.1.tgz#a48472d3bf1501f54d9a2383541a0e03887fa724"
-  integrity sha512-ZE7is8acyHWlsk88RN4fgU2WSruCQhbMWc2C7J05zftkcSqumwKnfeUDWokLa2SzRQocKcGfH/mKPzNNro6DNg==
-  dependencies:
-    fast-html-parser "^1.0.1"
-
 "@xmcl/forge@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@xmcl/forge/-/forge-1.1.1.tgz#b89ab8c739cf493fd0400e397dd003bf0781dfae"
@@ -403,11 +389,6 @@
   resolved "https://registry.yarnpkg.com/@xmcl/gamesetting/-/gamesetting-1.0.3.tgz#68b528472ea8e04799a318f45a0e9cd67f836155"
   integrity sha512-HPdpOh72e1wiR1SPmzJphTkEJY8OTPgFdwd28PJz8Jv3QSu8u1D2ANgBzdXFNKJxRiRJI+v2+orLuR9+Pvf3RA==
 
-"@xmcl/gamesetting@^2.0.1-alpha.1":
-  version "2.0.1-alpha.1"
-  resolved "https://registry.yarnpkg.com/@xmcl/gamesetting/-/gamesetting-2.0.1-alpha.1.tgz#2b479d22b3850c343d697991b0fc72fa393bc109"
-  integrity sha512-wEcuWzTH+Pw2eyJP+hUMJKvB3PiLSN/cyFprf2QRhAieACyOkNHYkk7jDjT0WQ2Sk9r5oglb/YKCxXTmQiEkAg==
-
 "@xmcl/installer@^1.0.5":
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/@xmcl/installer/-/installer-1.0.5.tgz#a76444547de627fdd052d061747731ac86b32f1d"
@@ -418,17 +399,6 @@
     "@xmcl/util" "^1.0.5"
     "@xmcl/version" "^1.0.5"
     got "^9.6.0"
-
-"@xmcl/installer@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@xmcl/installer/-/installer-2.2.0.tgz#57eaea9e1c0d0428978d57672263cccc605c210f"
-  integrity sha512-zSbUaCO7n71l3VgMCfjU/9EpvB0iQF6JfkQEnenVMtym5WzYSGCd0DAyx5fjlvmfJov1iUQGPRz3MZ5mUZjz0g==
-  dependencies:
-    "@xmcl/core" "^2.0.2"
-    "@xmcl/forge-site-parser" "^2.0.2-alpha.1"
-    "@xmcl/task" "^2.0.1-alpha.1"
-    agentkeepalive "^4.1.0"
-    got "^10.6.0"
 
 "@xmcl/java-installer@^0.1.1":
   version "0.1.1"
@@ -495,15 +465,6 @@
     "@xmcl/version" "^1.0.5"
     "@xmcl/world" "^1.0.4"
 
-"@xmcl/mod-parser@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@xmcl/mod-parser/-/mod-parser-2.0.1.tgz#cf040e4dbb30c3fae0630b50666aa6d02f03de8f"
-  integrity sha512-yQYdhQ54q1MAEkgtYUd7PeHdlB3mjEfe8c8lz/ZHIKg8vIfjq5yMMrMdxopCF+5qOh/KUs/SnXHR+Z4FFMNR2A==
-  dependencies:
-    "@iarna/toml" "2.2.3"
-    "@xmcl/system" "^1.0.6-alpha.1"
-    java-asm "0.0.6"
-
 "@xmcl/mojang@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@xmcl/mojang/-/mojang-1.0.3.tgz#13d17b7ca35b9ba623babd16f32e5a74a2a926b2"
@@ -565,7 +526,7 @@
   dependencies:
     form-data "^3.0.0"
 
-"@xmcl/resourcepack@^1.0.4", "@xmcl/resourcepack@^1.0.6":
+"@xmcl/resourcepack@^1.0.4":
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@xmcl/resourcepack/-/resourcepack-1.0.6.tgz#db98176e1556ab12781b273390b5097f455ef80b"
   integrity sha512-g7sgKPrI6FoEmgeM4q1L6eZnT5ozC1CNj/cblPPxfaDAbW6ly8iWil+60D4FMKiYaDkv/W9hOy6ore1S3FeVpg==
@@ -600,11 +561,6 @@
   resolved "https://registry.yarnpkg.com/@xmcl/task/-/task-1.0.5.tgz#34fb744e156cab400b08d9d09ea3584a5ed3b1dd"
   integrity sha512-ncmKjQSy2AWCmiKhOjh8QxVf2Pas6cJRlOzzdffZk1lMoDR40c9gq+bELjbtG5+eOTfghyP2WkVBKzmh1OCmcg==
 
-"@xmcl/task@^2.0.1-alpha.1":
-  version "2.0.1-alpha.1"
-  resolved "https://registry.yarnpkg.com/@xmcl/task/-/task-2.0.1-alpha.1.tgz#3dd4d67050f19b61a267817dc6ef829cbc7fdb77"
-  integrity sha512-vZht41gdQ33YuLozhNz7j0o3kjq/JGJ347WjO6iEPZB30EPQnxWwetFhXVtmEkmqUttCy/L1k7GlnqS/5YQJCg==
-
 "@xmcl/task@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@xmcl/task/-/task-2.1.0.tgz#18a8ccc39e4c95fb879f28fbb4f6b2b738084f76"
@@ -628,15 +584,6 @@
   integrity sha512-AIDlgSK2uFXw65KnXxE2wi03UNsVKvP2VDZegskQ/Ti+NypxO9yq9z6MK4cQ5BS09zEq9lwOlAy33L0YRi5jdQ==
   dependencies:
     yauzl "^2.10.0"
-
-"@xmcl/user@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@xmcl/user/-/user-2.1.0.tgz#d88de099f94f2d5a68ed5c9997985a20cc98035b"
-  integrity sha512-IvKTUFNngn1CPilcL0qk3MyVhVQQM6RkMItzBxGMMzsebiURZEQ72Yx+lMEKD0vki4fFy3ZCreHAp4Jc16oxNA==
-  dependencies:
-    form-data "^3.0.0"
-    got "^10.6.0"
-    uuid "^3.2.1"
 
 "@xmcl/util@^1.0.5":
   version "1.0.5"
@@ -694,15 +641,6 @@ acorn@^6.2.1:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.4.0.tgz#b659d2ffbafa24baf5db1cdbb2c94a983ecd2784"
   integrity sha512-gac8OEcQ2Li1dxIEWGZzsp2BitJxwkwcOm0zHAJLcPJaVvm58FRnk6RkuLRpU1EujipU2ZFODv2P9DLMfnV8mw==
-
-agentkeepalive@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/agentkeepalive/-/agentkeepalive-4.1.0.tgz#a48e040ed16745dd29ce923675f60c9c90f39ee0"
-  integrity sha512-CW/n1wxF8RpEuuiq6Vbn9S8m0VSYDMnZESqaJ6F2cWN9fY8rei2qaxweIaRgq+ek8TqfoFIsUjaGNKGGEHElSg==
-  dependencies:
-    debug "^4.1.0"
-    depd "^1.1.2"
-    humanize-ms "^1.2.1"
 
 ajv-errors@^1.0.0:
   version "1.0.1"
@@ -3368,7 +3306,7 @@ delegates@^1.0.0:
   resolved "https://registry.yarnpkg.com/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
   integrity sha1-hMbhWbgZBP3KWaDvRM2HDTElD5o=
 
-depd@^1.1.2, depd@~1.1.2:
+depd@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/depd/-/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"
   integrity sha1-m81S4UwJd2PnSbJ0xDRu0uVgtak=
@@ -4933,13 +4871,6 @@ https-browserify@^1.0.0:
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
   integrity sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
 
-humanize-ms@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/humanize-ms/-/humanize-ms-1.2.1.tgz#c46e3159a293f6b896da29316d8b6fe8bb79bbed"
-  integrity sha1-xG4xWaKT9riW2ikxbYtv6Lt5u+0=
-  dependencies:
-    ms "^2.0.0"
-
 humanize-plus@^1.8.1:
   version "1.8.2"
   resolved "https://registry.yarnpkg.com/humanize-plus/-/humanize-plus-1.8.2.tgz#a65b34459ad6367adbb3707a82a3c9f916167030"
@@ -5441,7 +5372,7 @@ isstream@~0.1.2:
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
-java-asm@0.0.6, java-asm@^0.0.6:
+java-asm@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/java-asm/-/java-asm-0.0.6.tgz#2bd90e1e898e4d4e54c3d95a5ba8a75b8e17db7b"
   integrity sha512-FYt47kA0O1sRNFY41iqBS9RDUa8plqdjzD3vgCEDfXkNnWCJSI2AV2YO9kWVKu9nflDSOvKyvplvdZHaezGJFg==
@@ -6322,7 +6253,7 @@ ms@2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.1.tgz#30a5864eb3ebb0a66f2ebe6d727af06a09d86e0a"
   integrity sha512-tgp+dl5cGk28utYktBsrFqA7HKgrhgPsg6Z/EfhWI4gl1Hwq8B/GmY/0oXZ6nF8hDVesS/FpnYaD/kOWhYQvyg==
 
-ms@^2.0.0, ms@^2.1.1:
+ms@^2.1.1:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
