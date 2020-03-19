@@ -1,6 +1,6 @@
 <template>
     <div id="app" >
-        <div v-if="showheader" class="draggable-header">
+        <div class="draggable-header">
             <img src="static/img/logo.png">
             <span>MRS Launcher</span>
             <button id="btnMiniSize" v-on:click="winmini">
@@ -24,7 +24,6 @@
         data() {
             return {
                 windowstat: "window-maximize",
-                showheader: process.platform !== 'darwin'
             }
         },
         methods: {

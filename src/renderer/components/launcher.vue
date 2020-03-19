@@ -4,7 +4,9 @@
             <div class="header">
             </div>
             <div class="footer">
-                <div class="footer-box"></div>
+                <div class="footer-box">
+
+                </div>
                 <button id="btnPlay" type="button" v-on:click="launch">
                     <img :src="play" id="imgPlay">
                 </button>
@@ -51,9 +53,9 @@
                 let client = await MinecraftClient.getMinecraftClient("1.14", {
                     gameDir: require('path').resolve('minecraft')
                 }, InstallationProgress.callback(currentStep => {
-                    console.log(currentStep)
+                    console.log(currentStep);
                 }, progress => {
-
+                    console.log(progress);
                 }));
                 await client.checkInstallation();
                 await client.launch(await Authentication.refresh(storage.getLoginInfo().accessToken));
