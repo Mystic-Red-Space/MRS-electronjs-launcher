@@ -34,6 +34,10 @@ function tryGetLocalStorage() {
     }
 }
 
+function saveStorage() {
+
+}
+
 function removeAllStorage() {
     sessionStorage.removeItem('accessToken');
     sessionStorage.removeItem('clientToken');

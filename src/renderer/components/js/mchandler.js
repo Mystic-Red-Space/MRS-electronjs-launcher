@@ -2,6 +2,7 @@ const {MinecraftClient} = require('@eneris/minecraft-client');
 const {Authentication} = require('@eneris/minecraft-client');
 const {CurseForgeMod, CustomForgeMod, ForgeMod} = require('@eneris/minecraft-client');
 const {InstallationProgress} = require('@eneris/minecraft-client');
+const storage = require('./storage');
 const axios = require('axios').default;
 
 
@@ -40,7 +41,8 @@ async function installmodpack(modpack) {
             port: 25565
         }
     )
-    await client.checkInstallation();
 }
 
-installmodpack("Minimalism")
+module.exports = {
+    installmodpack
+}

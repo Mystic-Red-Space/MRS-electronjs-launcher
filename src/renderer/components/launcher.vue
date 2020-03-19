@@ -31,6 +31,7 @@
     const {InstallationProgress} = require('@eneris/minecraft-client');
     const storage = require('./js/storage');
     const auth = require('./js/auth');
+    const mchandler = require('./js/mchandler')
     export default {
         name: "launcher",
         data() {
@@ -49,14 +50,8 @@
                 storage.removeAllStorage();
                 this.$router.push('login');
             },
-            launch: async function () {
-                let client = await MinecraftClient.getMinecraftClient("1.14", {
-                    gameDir: require('path').resolve('minecraft')
-                }, InstallationProgress.callback(currentStep => {
-                    console.log(currentStep);
-                }, progress => {
-                    console.log(progress);
-                }));
+            launch: function () {
+                mchandler.installmodpack('minimalism')
                 await client.checkInstallation();
                 await client.launch(await Authentication.refresh(storage.getLoginInfo().accessToken));
             }
