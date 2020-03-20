@@ -27,7 +27,7 @@
 <script>
     const storage = require('./js/storage');
     const auth = require('./js/auth');
-    const {installmodpack} = require('./js/mchandler');
+    const {installmodpack} = require('./js/mchandler').default;
     const info = storage.getLoginInfo();
     export default {
         name: "launcher",
