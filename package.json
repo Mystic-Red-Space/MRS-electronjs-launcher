@@ -61,6 +61,7 @@
     "axios": "^0.18.0",
     "discord-rpc": "^3.1.0",
     "download-file": "^0.1.5",
+    "minecraft-jml": "^0.0.2",
     "node-machine-id": "^1.1.12",
     "register-scheme": "github:devsnek/node-register-scheme",
     "vue": "^2.5.16",
