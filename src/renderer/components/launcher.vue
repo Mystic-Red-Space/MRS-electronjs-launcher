@@ -47,7 +47,7 @@
                 this.$router.push('login');
             },
             launch: async function () {
-                await installmodpack("Minimalism", info.accessToken, info.uuid, info.username, "4G")
+                await installmodpack("Minimalism", info.accessToken, info.uuid, info.username, 4096)
             }
         },
         components: {},

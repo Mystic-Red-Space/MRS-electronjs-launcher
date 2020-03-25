@@ -1,12 +1,9 @@
-const {MinecraftClient} = require('@eneris/minecraft-client');
-const {Authentication} = require('@eneris/minecraft-client');
-const {CurseForgeMod, CustomForgeMod, ForgeMod} = require('@eneris/minecraft-client');
-const {InstallationProgress} = require('@eneris/minecraft-client');
-const storage = require('./storage');
 const axios = require('axios').default;
-
+const jml = require('minecraft-jml');
+const {spawn} = require('child_process');
 
 async function installmodpack(modpack, token, uuid, username, mem) {
+    const launcher = new jml.jml();
     let version;
     let forgever;
     let serveraddress;
@@ -26,43 +23,46 @@ async function installmodpack(modpack, token, uuid, username, mem) {
     let modlist = rawmodlist.data;
     let modslist = [];
     modlist.forEach((element) => {
-        modslist.push(new CustomForgeMod(element.name, element.name, element.url, element.sha1))
+        modslist.push(launcher.getCustomForgeMod(element.name, element.url, element.sha1))
     });
-    let client = await MinecraftClient.getForgeClient(version, forgever, {
-        gameDir: gamedir,
-    }, InstallationProgress.callback(currentStep => {
-        console.log(currentStep);
-    }, progress => {
-        console.log(progress);
-    }));
-    await client.ensureServersDat(
-        {
-            host: serveraddress,
-            name: modpack
+
+    await launcher.initialize(gamedir);
+    let versionname = launcher.getVersionName(version, forgever);
+    await launcher.updateProfiles();
+    if (!launcher.profiles.some(x => x.name === versionname)) {
+        console.log("install forge : " + versionname);
+
+        await launcher.downloadForge(version, forgever);
+        await launcher.updateProfiles();
+    }
+    await launcher.downloadMods(modslist);
+    const arg = await launcher.launch(versionname, {
+        xmx: mem,
+        server_ip: "mysticrs.tk",
+        session: {
+            username: username,
+            access_token: token,
+            uuid: uuid
         }
-    );
-    await client.checkInstallation();
-    await client.checkMods(modslist);
-    await client.launch(
-        {
-            token: token,
-            uuid: uuid,
-            name: username,
-            result: true,
-            errorCause: null,
-            errorMessage: null,
-            errorType: null
-        },
-        {
-            memory: mem
-        }
-    )
+    });
+    let realarg = arg.split(" ");
+    console.log(realarg);
+    const inst = spawn("java", realarg, {cwd: gamedir});
+    inst.stdout.on('data', function (data) {
+        console.log(data + "");
+    });
+    inst.stderr.on('data', function (data) {
+        console.log(data + "");
+    });
+
 }
 
 async function test(id, pass) {
+
     let cred = await require("./auth.js").login(id, pass);
-    await installmodpack("Minimalism", cred.data.accessToken, cred.data.uuid, cred.data.username, "8G")
+    await installmodpack("Minimalism", cred.data.accessToken, cred.data.uuid, cred.data.username, 8192)
 }
+
 
 export default {
     installmodpack

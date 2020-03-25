@@ -5615,10 +5615,10 @@ mimic-response@^1.0.0, mimic-response@^1.0.1:
   resolved "https://registry.yarnpkg.com/mimic-response/-/mimic-response-1.0.1.tgz#4923538878eef42063cb8a3e3b0798781487ab1b"
   integrity sha512-j5EctnkH7amfV/q5Hgmoal1g2QHFJRraOtmx0JpIqkxhBhI/lJSl1nMpQ45hVarwNETOoWEimndZ4QK0RHxuxQ==
 
-minecraft-jml@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/minecraft-jml/-/minecraft-jml-0.0.2.tgz#5cdae3d59ddcb2119b6de633028222fed4ee245c"
-  integrity sha512-g4TB2WxA8Qai53Ne3Cfx4o3NBg+QE6rcoh6a6KAFn+PA6WIeoWFiFDYxWnjascl8MDnaMkFME4hqmXIWPeNvXw==
+minecraft-jml@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/minecraft-jml/-/minecraft-jml-0.0.3.tgz#c21f05ef74b167de1b5d3e694fb4cf1d4a3e22cb"
+  integrity sha512-1vzZO/80Nxp2baE7zKoZv/TnSl9UnfepM2CExN4yfV8DDmRu0MWFy+OWzk+510sVr9aEH9xXO9kV3y982DK8qA==
   dependencies:
     node-fetch "^2.6.0"
     unzipper "^0.10.10"
