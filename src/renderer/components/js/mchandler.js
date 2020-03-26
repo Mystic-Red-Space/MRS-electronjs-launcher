@@ -61,14 +61,12 @@ async function installmodpack(modpack, token, uuid, username, mem) {
 }
 
 async function test(id, pass) {
-
-    //let cred = await require("./auth.js").login(id, pass);
-    //await installmodpack("Minimalism", cred.data.accessToken, cred.data.uuid, cred.data.username, 8192)
-    await installmodpack("Minimalism", "at", "ud", "un", 8192)
+    let cred = await require("./auth.js").login(id, pass);
+    await installmodpack("Minimalism", cred.data.accessToken, cred.data.uuid, cred.data.username, 8192)
 }
 
-test("asdf", "asdf");
+//test("asdf", "asdf");
 
-//export default {
-//    installmodpack
-//};
+export default {
+    installmodpack
+};
