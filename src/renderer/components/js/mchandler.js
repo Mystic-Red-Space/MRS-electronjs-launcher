@@ -1,9 +1,13 @@
 const axios = require('axios').default;
 const jml = require('minecraft-jml');
-const {spawn} = require('child_process');
+const { spawn } = require('child_process');
 
 async function installmodpack(modpack, token, uuid, username, mem) {
     const launcher = new jml.jml();
+    launcher.downloadEventHandler = function (kind, name, max, current) { // log progress
+        // kind : forge, library, resource, index, minecraft, mod
+        console.log(`${kind} - ${name} (${current} / ${max})`);
+    };
     let version;
     let forgever;
     let serveraddress;
@@ -11,13 +15,13 @@ async function installmodpack(modpack, token, uuid, username, mem) {
     let rawpacklist = await axios.get('https://api.mysticrs.tk/list');
     let packlist = rawpacklist.data;
     packlist.forEach((element) => {
-            if (element.name === modpack) {
-                version = element.version;
-                forgever = element.forge;
-                serveraddress = element.server;
-                gamedir = require('path').resolve("instances/" + modpack)
-            }
+        if (element.name === modpack) {
+            version = element.version;
+            forgever = element.forge;
+            serveraddress = element.server;
+            gamedir = require('path').resolve("instances/" + modpack)
         }
+    }
     );
     let rawmodlist = await axios.get('https://api.mysticrs.tk/mods?name=' + modpack);
     let modlist = rawmodlist.data;
@@ -45,9 +49,8 @@ async function installmodpack(modpack, token, uuid, username, mem) {
             uuid: uuid
         }
     });
-    let realarg = arg.split(" ");
-    console.log(realarg);
-    const inst = spawn("java", realarg, {cwd: gamedir});
+    console.log(arg);
+    const inst = spawn("java", arg, { cwd: gamedir });
     inst.stdout.on('data', function (data) {
         console.log(data + "");
     });
@@ -59,11 +62,13 @@ async function installmodpack(modpack, token, uuid, username, mem) {
 
 async function test(id, pass) {
 
-    let cred = await require("./auth.js").login(id, pass);
-    await installmodpack("Minimalism", cred.data.accessToken, cred.data.uuid, cred.data.username, 8192)
+    //let cred = await require("./auth.js").login(id, pass);
+    //await installmodpack("Minimalism", cred.data.accessToken, cred.data.uuid, cred.data.username, 8192)
+    await installmodpack("Minimalism", "at", "ud", "un", 8192)
 }
 
+test("asdf", "asdf");
 
-export default {
-    installmodpack
-};
+//export default {
+//    installmodpack
+//};
