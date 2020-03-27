@@ -31,12 +31,15 @@ async function installmodpack(modpack, token, uuid, username, mem) {
     });
 
     await launcher.initialize(gamedir);
+
+    var jre = await launcher.checkJre();
+
     let versionname = launcher.getVersionName(version, forgever);
     await launcher.updateProfiles();
     if (!launcher.profiles.some(x => x.name === versionname)) {
         console.log("install forge : " + versionname);
 
-        await launcher.downloadForge(version, forgever);
+        await launcher.checkForge(version, forgever);
         await launcher.updateProfiles();
     }
     await launcher.downloadMods(modslist);
@@ -50,7 +53,7 @@ async function installmodpack(modpack, token, uuid, username, mem) {
         }
     });
     console.log(arg);
-    const inst = spawn("java", arg, { cwd: gamedir });
+    const inst = spawn(jre, arg, { cwd: gamedir });
     inst.stdout.on('data', function (data) {
         console.log(data + "");
     });
