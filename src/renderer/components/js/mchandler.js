@@ -1,13 +1,17 @@
 const axios = require('axios').default;
 const jml = require('minecraft-jml');
-const { spawn } = require('child_process');
+const {spawn} = require('child_process');
 
-async function installmodpack(modpack, token, uuid, username, mem) {
+async function installmodpack(modpack, token, uuid, username, mem, callback) {
     const launcher = new jml.jml();
-    launcher.downloadEventHandler = function (kind, name, max, current) { // log progress
-        // kind : forge, library, resource, index, minecraft, mod
-        console.log(`${kind} - ${name} (${current} / ${max})`);
-    };
+    if (callback === undefined) {
+        launcher.downloadEventHandler = function (kind, name, max, current) { // log progress
+            // kind : forge, library, resource, index, minecraft, mod
+            console.log(`${kind} - ${name} (${current} / ${max})`);
+        };
+    } else {
+        launcher.downloadEventHandler = callback;
+    }
     let version;
     let forgever;
     let serveraddress;
@@ -15,13 +19,13 @@ async function installmodpack(modpack, token, uuid, username, mem) {
     let rawpacklist = await axios.get('https://api.mysticrs.tk/list');
     let packlist = rawpacklist.data;
     packlist.forEach((element) => {
-        if (element.name === modpack) {
-            version = element.version;
-            forgever = element.forge;
-            serveraddress = element.server;
-            gamedir = require('path').resolve("instances/" + modpack)
+            if (element.name === modpack) {
+                version = element.version;
+                forgever = element.forge;
+                serveraddress = element.server;
+                gamedir = require('path').resolve("instances/" + modpack)
+            }
         }
-    }
     );
     let rawmodlist = await axios.get('https://api.mysticrs.tk/mods?name=' + modpack);
     let modlist = rawmodlist.data;
@@ -32,7 +36,7 @@ async function installmodpack(modpack, token, uuid, username, mem) {
 
     await launcher.initialize(gamedir);
 
-    var jre = await launcher.checkJre();
+    const jre = await launcher.checkJre();
 
     let versionname = launcher.getVersionName(version, forgever);
     await launcher.updateProfiles();
@@ -42,7 +46,7 @@ async function installmodpack(modpack, token, uuid, username, mem) {
         await launcher.checkForge(version, forgever);
         await launcher.updateProfiles();
     }
-    await launcher.downloadMods(modslist);
+    await launcher.checkMods(modslist);
     const arg = await launcher.launch(versionname, {
         xmx: mem,
         server_ip: "mysticrs.tk",
@@ -53,7 +57,7 @@ async function installmodpack(modpack, token, uuid, username, mem) {
         }
     });
     console.log(arg);
-    const inst = spawn(jre, arg, { cwd: gamedir });
+    const inst = spawn(jre, arg, {cwd: gamedir});
     inst.stdout.on('data', function (data) {
         console.log(data + "");
     });
