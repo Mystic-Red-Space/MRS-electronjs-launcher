@@ -15,7 +15,7 @@
         "pack": "npm run pack:main && npm run pack:renderer",
         "pack:main": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.main.config.js",
         "pack:renderer": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.renderer.config.js",
-        "postinstall": ""
+        "postinstall": "electron-rebuild"
     },
     "build": {
         "productName": "MRS Minecraft Launcher",
@@ -52,7 +52,6 @@
         }
     },
     "dependencies": {
-        "@eneris/minecraft-client": "^3.1.1",
         "@fortawesome/fontawesome-svg-core": "^1.2.27",
         "@fortawesome/free-brands-svg-icons": "^5.12.1",
         "@fortawesome/free-regular-svg-icons": "^5.12.1",
@@ -63,7 +62,6 @@
         "download-file": "^0.1.5",
         "minecraft-jml": "^0.2.2",
         "node-machine-id": "^1.1.12",
-        "register-scheme": "github:devsnek/node-register-scheme",
         "vue": "^2.5.16",
         "vue-cool-select": "^3.5.2",
         "vue-electron": "^1.0.6",
@@ -93,6 +91,7 @@
         "electron-builder": "^20.19.2",
         "electron-debug": "^1.5.0",
         "electron-devtools-installer": "^2.2.4",
+        "electron-rebuild": "^1.10.1",
         "file-loader": "^1.1.11",
         "html-webpack-plugin": "^3.2.0",
         "mini-css-extract-plugin": "0.4.0",
