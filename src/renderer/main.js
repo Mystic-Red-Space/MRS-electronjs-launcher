@@ -17,6 +17,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 import vSelect from 'vue-select'
+import 'vue-cool-select/dist/themes/material-design.css'
 
 Vue.component('v-select', vSelect);
 Vue.use(CoolSelectPlugin);

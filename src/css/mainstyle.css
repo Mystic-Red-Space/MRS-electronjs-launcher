@@ -1,152 +1,159 @@
 @font-face {
-  font-family: 'NanumGothic';
-  src: url('../../NanumGothic.ttf');
-}
-body {
-  margin: 0;
+    font-family: 'NanumGothic';
+    src: url('../../NanumGothic.ttf');
 }
 
-.selectbox {
-  position: fixed;
-  left: 170px;
+body {
+    margin: 0;
+}
+
+.IZ-select {
+    position: fixed;
+    top: 290px;
+
+}
+
+.packicon {
+    max-width: 40px;
+    margin-right: 10px;
 }
 
 .wrapper {
-  overflow: hidden;
-  position: fixed;
-  top: 30px;
-  width: 100%;
-  height: 100%;
+    overflow: hidden;
+    position: fixed;
+    top: 30px;
+    width: 100%;
+    height: 100%;
 }
 
 .bundle {
-  position: fixed;
-  margin-left: 170px;
-  width: calc(100% - 170px);
-  height: 100%;
+    position: fixed;
+    margin-left: 170px;
+    width: calc(100% - 170px);
+    height: 100%;
 }
 
 .bundle .header {
-  position: fixed;
-  background-color: #373737;
-  top: 0;
-  left: 0;
-  height: 100px;
-  line-height: 80px;
-  text-align: right;
-  z-index: 1;
-  width: 100%;
+    position: fixed;
+    background-color: #373737;
+    top: 0;
+    left: 0;
+    height: 100px;
+    line-height: 80px;
+    text-align: right;
+    z-index: 1;
+    width: 100%;
 }
 
 .sidenav {
-  position: fixed;
-  height: 100%;
-  width: 170px;
-  top: 0;
-  left: 0;
-  background-color: #0e0e0e;
-  overflow-x: hidden;
-  z-index: 1;
+    position: fixed;
+    height: 100%;
+    width: 170px;
+    top: 0;
+    left: 0;
+    background-color: #0e0e0e;
+    overflow-x: hidden;
+    z-index: 1;
 }
 
 .sidenav #profileCircle {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
-  top: 55px;
-  width: 100px;
-  height: 100px;
-  border-radius: 15px;
-  background-color: #a8a8a8;
-  line-height: 100px;
-  text-align: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  font-family: 'NanumGothic', 'serif';
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 55px;
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+    background-color: #a8a8a8;
+    line-height: 100px;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'NanumGothic', 'serif';
 }
 
 .sidenav p {
-  margin: 0;
-  position: absolute;
-  color: whitesmoke;
-  left: 50%;
-  transform: translate(-50%);
-  top: 170px;
-  width: inherit;
-  font-weight: bold;
-  font-size: 20px;
-  word-break: break-word;
-  text-align: center;
-  font-family: 'NanumGothic', 'serif';
+    margin: 0;
+    position: absolute;
+    color: whitesmoke;
+    left: 50%;
+    transform: translate(-50%);
+    top: 170px;
+    width: inherit;
+    font-weight: bold;
+    font-size: 20px;
+    word-break: break-word;
+    text-align: center;
+    font-family: 'NanumGothic', 'serif';
 }
 
 #btnLogout {
-  position: fixed;
-  bottom: 0;
-  height: 80px;
-  width: inherit;
-  background-color: #262626;
-  border: none;
-  outline: none;
-  color: whitesmoke;
-  font-family: 'NanumGothic', 'serif';
-  font-weight: bold;
-  font-size: 20px;
-  transition: 0.5s;
+    position: fixed;
+    bottom: 0;
+    height: 80px;
+    width: inherit;
+    background-color: #262626;
+    border: none;
+    outline: none;
+    color: whitesmoke;
+    font-family: 'NanumGothic', 'serif';
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.5s;
 }
 
 #btnLogout:hover {
-  background-color: #333333;
+    background-color: #333333;
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
-  height: 160px;
-  line-height: 160px;
-  width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 160px;
+    line-height: 160px;
+    width: 100%;
 }
 
 .footer-box {
-  position: fixed;
-  z-index: 1;
-  margin-left: 170px;
-  background-color: #373737;
-  bottom: 0;
-  left: 0;
-  height: 80px;
-  width: calc(100% - 170px);
-  text-align: center;
+    position: fixed;
+    z-index: 1;
+    margin-left: 170px;
+    background-color: #373737;
+    bottom: 0;
+    left: 0;
+    height: 80px;
+    width: calc(100% - 170px);
+    text-align: center;
 }
 
 .section {
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  margin-left: -5px;
-  z-index: 0;
-  background-image: url("../../static/img/mainwallpaper.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    margin-left: -5px;
+    z-index: 0;
+    background-image: url("../../static/img/mainwallpaper.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 / / filter: blur(3 px);
 }
 
 .footer #btnPlay {
-  position: absolute;
-  top: 10px;
-  height: 80px;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  left: 50%;
-  transform: translate(-50%);
-  z-index: 1;
+    position: absolute;
+    top: 10px;
+    height: 80px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 1;
 }
 
 .footer #imgPlay {
-  height: inherit;
+    height: inherit;
 }
 
 .footer #imgPlay:hover {
-  content: url("../../static/img/play_button_enable.png")
+    content: url("../../static/img/play_button_enable.png")
 }
