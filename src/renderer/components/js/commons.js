@@ -2,8 +2,8 @@ const native = require("./native");
 const path = require("path");
 const jml = require("minecraft-jml");
 
-let basepath = 'C:\\programming\\git\\MRS-electronjs-launcher';
-//let basepath = path.resolve('./');
+//let basepath = 'C:\\programming\\git\\MRS-electronjs-launcher';
+let basepath = path.resolve('./');
 const modpack = 'instances';
 const runtime = 'runtime';
 const assets = 'assets';
