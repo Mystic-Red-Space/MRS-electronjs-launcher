@@ -90,7 +90,6 @@ async function startModPack(modpack, xmx, session, progress) {
         fireEvent(progress, '파일 제거 중');
         await removeUserFiles(gamedir, mods.files);
     }
-    return;
 
     fireEvent(progress, '게임 다운로드 준비 중');
     let versionname = launcher.getVersionName(modpack.version, modpack.forge);
@@ -141,7 +140,7 @@ async function test() {
     });
 }
 
-test();
+//test();
 
 module.exports = {
     startModPack: startModPack
