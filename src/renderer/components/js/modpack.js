@@ -59,17 +59,22 @@ async function downloadMods(basedir, list, progress) {
 }
 
 // list : [ { name, sha1, url, dir } ]
-async function removeUserFiles(basedir, list) {
+async function removeUserFiles(basedir, list, whitelist) {
     // use HashSet to optimize
 
     let localfiles = await native.readdirRec(basedir);
-    let serverfiles = new Set([...list.map(x => native.join(basedir, x.dir, x.name))]);
-    let userfiles = localfiles.filter(x => !serverfiles.has(x))
+    let serverfiles = new Set(list.map(x => native.join(basedir, x.dir, x.name)));
+    let whitefiles = whitelist.map(x => native.join(basedir, x));
+    serverfiles.add(...whitefiles);
+
+    let userfiles = localfiles.filter(x => !serverfiles.has(x));
 
     for (let i = 0; i < userfiles.length; i++) {
         console.log("remove " + userfiles[i]) // debug
         await native.rmfile(userfiles[i])
     }
+
+    await native.cleanDirStructure(basedir);
 }
 
 // modpack : { name, forge, version, server, icon }
@@ -88,7 +93,7 @@ async function startModPack(modpack, xmx, session, progress) {
 
     if (mods.updated) {
         fireEvent(progress, '파일 제거 중');
-        await removeUserFiles(gamedir, mods.files);
+        await removeUserFiles(gamedir, mods.files, ['modcache.dat']);
     }
 
     fireEvent(progress, '게임 다운로드 준비 중');

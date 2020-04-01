@@ -97,6 +97,28 @@ async function readdirRec(p) {
     return result;
 }
 
+async function cleanDirStructure(p) {
+    let list = await readdir(p);
+    if (list.length == 0) {
+        await rmdir(p);
+        return;
+    }
+
+    for (var i = 0; i < list.length; i++) {
+        let item = join(p, list[i]);
+
+        if (await checkDirExists(item)) {
+            await cleanDirStructure(item);
+        }
+    }
+
+    list = await readdir(p);
+    if (list.length == 0) {
+        await rmdir(p);
+        return;
+    }
+}
+
 async function copyfile(org, des) {
     await util.promisify(fs.copyFile)(org, des);
 }
@@ -197,6 +219,7 @@ module.exports = {
     checkFileExists: checkFileExists,
     readdir: readdir,
     readdirRec: readdirRec,
+    cleanDirStructure: cleanDirStructure,
     copyfile: copyfile,
     rmdir: rmdir,
     rmfile: rmfile,
