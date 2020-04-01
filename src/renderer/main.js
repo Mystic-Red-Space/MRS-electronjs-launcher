@@ -4,6 +4,7 @@ import axios from 'axios'
 import App from './App'
 import router from './router'
 import store from './store'
+import {CoolSelectPlugin} from 'vue-cool-select'
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {
     faEye,
@@ -16,9 +17,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 import vSelect from 'vue-select'
+import 'vue-cool-select/dist/themes/material-design.css'
 
 Vue.component('v-select', vSelect);
-
+Vue.use(CoolSelectPlugin);
 library.add(faWindowMinimize, faWindowMaximize, faTimes, faWindowRestore, faSignOutAlt, faEye, faEyeSlash);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
