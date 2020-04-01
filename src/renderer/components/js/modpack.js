@@ -62,9 +62,9 @@ async function downloadMods(basedir, list, progress) {
 async function removeUserFiles(basedir, list) {
     // use HashSet to optimize
 
-    let localfiles = new Set([...await native.readdirRec(basedir)]);
+    let localfiles = await native.readdirRec(basedir);
     let serverfiles = new Set([...list.map(x => native.join(basedir, x.dir, x.name))]);
-    let userfiles = localfiles.map(x => !serverfiles.has(x));
+    let userfiles = localfiles.filter(x => !serverfiles.has(x))
 
     for (let i = 0; i < userfiles.length; i++) {
         console.log("remove " + userfiles[i]) // debug
@@ -90,6 +90,7 @@ async function startModPack(modpack, xmx, session, progress) {
         fireEvent(progress, '파일 제거 중');
         await removeUserFiles(gamedir, mods.files);
     }
+    return;
 
     fireEvent(progress, '게임 다운로드 준비 중');
     let versionname = launcher.getVersionName(modpack.version, modpack.forge);
