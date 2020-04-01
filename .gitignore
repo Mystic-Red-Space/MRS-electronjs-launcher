@@ -10,4 +10,6 @@ thumbs.db
 !.gitkeep
 ._*
 /minecraft/
-/instances/Minimalism
+/instances/
+/assets/
+/runtime
