@@ -61,6 +61,7 @@
         "discord-rpc": "^3.1.0",
         "download-file": "^0.1.5",
         "minecraft-jml": "^0.2.2",
+        "nbt": "^0.8.1",
         "node-machine-id": "^1.1.12",
         "vue": "^2.5.16",
         "vue-cool-select": "^3.5.2",
