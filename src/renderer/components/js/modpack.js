@@ -3,6 +3,7 @@ const path = require('path');
 const native = require('./native');
 const commons = require("./commons");
 const { spawn } = require('child_process');
+const nbtserver = require('./nbtserver');
 
 async function readModCache(name) {
     let p = path.join(commons.getPackPath(name), 'modcache.dat');
@@ -112,7 +113,17 @@ async function startModPack(modpack, xmx, session, progress) {
     });
 
     fireEvent(progress, '게임 설정 중');
-    // set servers.dat
+
+    let serverdatPath = native.join(gamedir, 'servers.dat');
+    let serverdat = new nbtserver.NBTServerDat(serverdatPath);
+    await serverdat.loadServers();
+
+    if (!serverdat.servers.some(x => x.ip.value === modpack.server)) {
+        serverdat.addServer('MRS Server', modpack.server);
+    }
+
+    await serverdat.saveServers();
+
     // set options.txt
 
     fireEvent(progress, '게임 실행 완료');
@@ -145,7 +156,7 @@ async function test() {
     });
 }
 
-//test();
+test();
 
 module.exports = {
     startModPack: startModPack
