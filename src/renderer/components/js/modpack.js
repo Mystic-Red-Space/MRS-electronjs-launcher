@@ -23,27 +23,26 @@ async function writeModCache(name, content) {
 
 async function getMods(name) {
     let rawmodlist = await native.get('https://api.mysticrs.tk/mods?name=' + name);
-    let modlist = JSON.parse(rawmodlist);
-    let result = { files: modlist };
+    let modlist = JSON.parse(rawmodlist.data);
+    let result = {files: modlist};
 
-    if (rawmodlist != await readModCache(name)) {
+    if (rawmodlist !== await readModCache(name)) {
         await writeModCache(name, rawmodlist);
         result["updated"] = true;
-    }
-    else
-        result["updated"] = false
+    } else
+        result["updated"] = false;
 
 
     return result;
 }
 
 async function checkHash(fpath, hash) {
-    return await native.getsha1(fpath) == hash;
+    return await native.getsha1(fpath) === hash;
 }
 
 // list : [ { name, sha1, url, dir } ]
 async function downloadMods(basedir, list, progress) {
-    var length = list.length;
+    let length = list.length;
     for (let i = 0; i < length; i++) {
         let modfile = list[i];
 
@@ -51,7 +50,7 @@ async function downloadMods(basedir, list, progress) {
             progress('mod', modfile.name, length, i + 1);
 
         let moddir = path.join(basedir, modfile.dir);
-        native.mkdir(moddir);
+        await native.mkdir(moddir);
         let filepath = path.join(moddir, modfile.name);
 
         if (!await native.checkFileExists(filepath) || !await checkHash(filepath, modfile.sha1))
@@ -71,7 +70,7 @@ async function removeUserFiles(basedir, list, whitelist) {
     let userfiles = localfiles.filter(x => !serverfiles.has(x));
 
     for (let i = 0; i < userfiles.length; i++) {
-        console.log("remove " + userfiles[i]) // debug
+        console.log("remove " + userfiles[i]); // debug
         await native.rmfile(userfiles[i])
     }
 
@@ -87,7 +86,7 @@ async function startModPack(modpack, xmx, session, progress) {
 
     let jre = await launcher.checkJre(); // jre
 
-    fireEvent(progress, '모드팩 불러오는 중')
+    fireEvent(progress, '모드팩 불러오는 중');
     let mods = await getMods(modpack.name); // mods
 
     await downloadMods(gamedir, mods.files, progress);
@@ -150,7 +149,7 @@ async function test() {
         access_token: 't1',
         uuid: 't2',
         username: 't3'
-    }
+    };
     await startModPack(list[0], 4096, session, (k, n, m, c) => {
         console.log(`${k} ${n} ${c}/${m}`);
     });
@@ -159,5 +158,5 @@ async function test() {
 //test();
 
 module.exports = {
-    startModPack: startModPack
-}
+    startModPack
+};

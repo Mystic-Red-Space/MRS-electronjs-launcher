@@ -5862,6 +5862,11 @@ nanomatch@^1.2.9:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
+nbt@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/nbt/-/nbt-0.8.1.tgz#4f1d8ba9ced6ab5fdead82524a1c24932cf9c22e"
+  integrity sha512-jUNuLo/SM8vA7uW3pudnXgCOqd2187Vw9jSeyByKJCyGfxW9VIglKcSlBn8pfb/eS95Suv7eyDxvWGSNOK0dMw==
+
 ncname@1.0.x:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ncname/-/ncname-1.0.0.tgz#5b57ad18b1ca092864ef62b0b1ed8194f383b71c"
