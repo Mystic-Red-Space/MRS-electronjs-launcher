@@ -1,6 +1,6 @@
 
 const native = require('./native');
-const nbt = require('nbt');
+const nbt = require('./nbt');
 
 function parseNBT(buffer) {
     return new Promise((resolve, reject) => {
@@ -21,12 +21,13 @@ class NBTServerDat {
 
     async loadServers() {
         try {
-            let filedata = await native.fileread(this.path);
+            var fs = require('fs');
+            let filedata = fs.readFileSync(this.path);
             let nbtdata = await parseNBT(filedata);
 
             this.servers = nbtdata.value["servers"].value.value;
 
-            if (servers === undefined)
+            if (this.servers === undefined)
                 throw new Error('servers was undefined');
             if (!Array.isArray(this.servers))
                 throw new Error('servers was not array');
@@ -35,6 +36,8 @@ class NBTServerDat {
             console.log(e); // debug
             this.servers = [];
         }
+
+        return this.servers;
     }
 
     getServer(name) {
@@ -58,7 +61,7 @@ class NBTServerDat {
     }
 
     async saveServers() {
-        let obj = {
+        var obj = {
             '': {
                 type: 'compound',
                 value: {
@@ -71,7 +74,7 @@ class NBTServerDat {
                     }
                 }
             }
-        }
+        };
 
         var writer = new nbt.Writer();
         writer['compound'](obj);
@@ -84,3 +87,12 @@ class NBTServerDat {
 module.exports = {
     NBTServerDat: NBTServerDat
 }
+
+//async function t() {
+//    let sv = new NBTServerDat("C:\\Users\\ksi12\\AppData\\Roaming\\.minecraft\\servers.dat");
+//    console.log(await sv.loadServers())
+//    sv.addServer("hgggg", "net");
+//    await sv.saveServers();
+//}
+
+//t();
