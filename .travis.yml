@@ -14,12 +14,20 @@ matrix:
 cache:
   - npm
   - yarn
+  - directories:
+    - node_modules
+    - "$HOME/.electron"
+    - "$HOME/.cache"
 addons:
   apt:
     packages:
       - libgnome-keyring-dev
       - icnsutils
 before_install:
+  - case $TRAVIS_OS_NAME in
+      windows)
+      choco install nvm
+    esac
   - export ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES=true
 #  - mkdir -p /tmp/git-lfs && curl -L https://github.com/github/git-lfs/releases/download/v2.12.0/git-lfs-$([
 #    "$TRAVIS_OS_NAME" == "linux" ] && echo "linux" || echo "darwin")-amd64-v2.12.0.tar.gz
