@@ -51,6 +51,9 @@
             "icon": "build/icons"
         }
     },
+    "resolutions": {
+        "graceful-fs": "^4.2.4"
+    },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.27",
         "@fortawesome/free-brands-svg-icons": "^5.12.1",
@@ -63,6 +66,7 @@
         "minecraft-jml": "^0.2.2",
         "nbt": "^0.8.1",
         "node-machine-id": "^1.1.12",
+        "register-scheme": "^0.0.2",
         "vue": "^2.5.16",
         "vue-cool-select": "^3.5.2",
         "vue-electron": "^1.0.6",
