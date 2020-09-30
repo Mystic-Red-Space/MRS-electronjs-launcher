@@ -8,6 +8,9 @@ matrix:
     - os: linux
       env: CC=clang CXX=clang++ npm_config_clang=1
       compiler: clang
+    - os: windows
+      env: CC=clang CXX=clang++ npm_config_clang=1
+      compiler: clang
 cache:
   - npm
   - yarn
