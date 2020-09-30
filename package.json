@@ -66,6 +66,7 @@
         "minecraft-jml": "^0.2.2",
         "nbt": "^0.8.1",
         "node-machine-id": "^1.1.12",
+        "nodegit": "^0.27.0",
         "register-scheme": "^0.0.2",
         "vue": "^2.5.16",
         "vue-cool-select": "^3.5.2",
