@@ -2,13 +2,16 @@ osx_image: xcode8.3
 sudo: required
 dist: trusty
 language: c
-matrix:
+jobs:
+  fast_finish: true
   include:
     - os: osx
+      before_install: brew install git-lfs
     - os: linux
       env: CC=clang CXX=clang++ npm_config_clang=1
       compiler: clang
     - os: windows
+      before_install: choco install nvm
       env: CC=clang CXX=clang++ npm_config_clang=1
       compiler: clang
 cache:
