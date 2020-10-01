@@ -14,7 +14,9 @@ jobs:
       compiler: clang
     - os: osx
       before_install: brew install git-lfs
-      script: travis_wait yarn run build 
+      script: 
+        - "travis_wait sleep 1200 &"
+        - yarn run build 
 cache:
   - npm
   - yarn
