@@ -1,20 +1,19 @@
 language: node_js
 node_js:
-  - 10 
-env: ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES=true
+  - 10
+env: ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES=true CC=clang CXX=clang++ npm_config_clang=1 YARN_GPG=no
 osx_image: xcode8.3 
 jobs:
   fast_finish: true
   include:
-    - os: osx
-      before_install: brew install git-lfs
     - os: linux
       before_install: sudo apt-get install --no-install-recommends -y icnsutils graphicsmagick xz-utils
-      env: CC=clang CXX=clang++ npm_config_clang=1
       compiler: clang
     - os: windows
-      env: CC=clang CXX=clang++ npm_config_clang=1
-      compiler: clang 
+      compiler: clang
+    - os: osx
+      before_install: brew install git-lfs
+      script: travis-wait yarn run build 
 cache:
   - npm
   - yarn
