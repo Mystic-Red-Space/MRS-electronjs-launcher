@@ -25,6 +25,7 @@ cache:
 install:
   - npm install -g xvfb-maybe 
 script:
-  - yarn run build branches:
+  - yarn run build 
+branches:
   only:
     - vue
