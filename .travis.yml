@@ -20,7 +20,7 @@ jobs:
       env: ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES=true YARN_GPG=no
       compiler: clang
 cache:
-  - npm
+  - npm: false
   - yarn
   - directories:
     - node_modules
