@@ -1,6 +1,6 @@
 # mrs-electronjs-launcher
 
-[![Build Status](https://api.travis-ci.com/Team-IF/MRS-electronjs-launcher.svg?token=YA7KvsoCpWCs1pjX22kn&branch=vue)](https://travis-ci.com/Team-IF/MRS-electronjs-launcher)
+[![Build Status](https://img.shields.io/travis/com/Team-IF/MRS-electronjs-launcher/vue?style=for-the-badge)](https://travis-ci.com/Team-IF/MRS-electronjs-launcher)
 
 > Minecraft modpack launcher of MRS Minecraft server
 
