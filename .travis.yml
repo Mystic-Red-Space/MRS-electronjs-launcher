@@ -12,8 +12,8 @@ jobs:
       before_install: brew install git-lfs
       install:
         - npm install -g xvfb-maybe
-        - yarn install
         - yarn add nodegit
+        - yarn install
     - os: linux
       before_install: sudo apt-get install --no-install-recommends -y icnsutils graphicsmagick xz-utils
       env: ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES=true YARN_GPG=no
