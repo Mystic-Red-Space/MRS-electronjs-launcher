@@ -14,12 +14,6 @@ jobs:
         - npm install -g xvfb-maybe
         - yarn install
         - yarn add nodegit
-      cache:
-        - npm: false
-        - yarn
-        - directories:
-            - "$HOME/.electron"
-            - "$HOME/.cache"
     - os: linux
       before_install: sudo apt-get install --no-install-recommends -y icnsutils graphicsmagick xz-utils
       env: ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES=true YARN_GPG=no
