@@ -24,11 +24,12 @@ function createWindow() {
         autoHideMenuBar: true,
         webPreferences: {
             nodeIntegration: true,
-            webSecurity: false
+            webSecurity: false,
+            enableRemoteModule: true
         },
         frame: false,
         show: false,
-        backgroundColor: "#373737"
+        backgroundColor: "#373737",
     });
 
     mainWindow.loadURL(winURL);
