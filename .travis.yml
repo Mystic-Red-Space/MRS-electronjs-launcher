@@ -1,25 +1,48 @@
+sudo: false
+
+dist: xenial
+
+compiler: clang
+
 language: node_js
-node_js:
-  - 10
-env: ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES=true YARN_GPG=no CC=clang CXX=clang++ npm_config_clang=1
-osx_image: xcode8.3 
+
+env:
+  - YARN_GPG=no
+#   - ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES=true
+
+node_js:	
+  - "12"	
+  - "10"	
+  - "8"
+
 jobs:
-  fast_finish: true
   include:
     - os: windows
-      compiler: clang
     - os: osx
       before_install: brew install git-lfs
-      cache:
-        - npm: false
-        - yarn
-        - directories:
-            - "$HOME/.electron"
-            - "$HOME/.cache"
-    - os: linux
-      before_install: sudo apt-get install --no-install-recommends -y icnsutils graphicsmagick xz-utils
-      env: ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES=true YARN_GPG=no
-      compiler: clang
+git:	
+  depth: 5
+
+addons:	
+  apt:	
+    sources:	
+      - ubuntu-toolchain-r-test	
+    packages:	
+      - build-essential	
+      - libssl-dev	
+      - gcc-4.9-multilib	
+      - g++-4.9-multilib	
+      - lcov
+      - icnsutils
+      - graphicsmagick
+      - xz-utils
+
+before_install:	
+  - export CC=clang	
+  - export CXX=clang++	
+  - export npm_config_clang=1	
+  - export JOBS=4
+
 cache:
   - npm
   - yarn
@@ -27,11 +50,10 @@ cache:
     - node_modules
     - "$HOME/.electron"
     - "$HOME/.cache"
+
 install:
   - npm install -g xvfb-maybe
   - yarn install
+
 script:
   - yarn run build 
-branches:
-  only:
-    - vue
