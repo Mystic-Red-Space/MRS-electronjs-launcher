@@ -10,6 +10,11 @@ jobs:
       compiler: clang
     - os: osx
       before_install: brew install git-lfs
+      cache:
+        - yarn
+        - directories:
+            - "$HOME/.electron"
+            - "$HOME/.cache"
     - os: linux
       before_install: sudo apt-get install --no-install-recommends -y icnsutils graphicsmagick xz-utils
       env: ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES=true YARN_GPG=no
