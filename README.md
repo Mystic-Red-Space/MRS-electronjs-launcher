@@ -1,6 +1,6 @@
 # mrs-electronjs-launcher
 
-[![Build Status](https://img.shields.io/travis/com/Team-IF/MRS-electronjs-launcher/vue?style=for-the-badge)](https://travis-ci.com/Team-IF/MRS-electronjs-launcher)
+[![Build Status](https://img.shields.io/azure-devops/build/Team-IF/e7b52226-3137-4340-8fb2-20112ce56432/3?style=for-the-badge)](https://dev.azure.com/Team-IF/Team-IF/_build/latest?definitionId=3&branchName=vue)
 
 > Minecraft modpack launcher of MRS Minecraft server
 
