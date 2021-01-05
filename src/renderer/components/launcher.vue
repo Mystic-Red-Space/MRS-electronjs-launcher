@@ -2,6 +2,10 @@
     <div class="wrapper">
         <div class="bundle">
             <div class="header">
+              <div class="warn_Message">
+                <b>[Warn] This Test Alpha version Not work this
+                (Now version status 2021.01.05_1)</b>
+              </div>
             </div>
             <div class="footer">
                 <div class="footer-box">
@@ -78,7 +82,7 @@
                 this.$router.push('login');
             },
             launch: async function () {
-                await installmodpack("Minimalism", info.accessToken, info.uuid, info.username, 4096)
+                await installmodpack("SevTech: Ages of the Sky", info.accessToken, info.uuid, info.username, 4096)
             },
             getimg: function (pack) {
             }

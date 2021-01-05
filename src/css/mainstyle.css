@@ -44,6 +44,10 @@ body {
     z-index: 1;
     width: 100%;
 }
+.warn_Message {
+    color: #c1514d;
+    width: 70%;
+}
 
 .sidenav {
     position: fixed;
@@ -140,12 +144,12 @@ body {
 
 .footer #btnPlay {
     position: absolute;
-    top: 10px;
-    height: 80px;
+    top: 39px;
+    height: 75px;
     background-color: transparent;
     border: none;
     outline: none;
-    left: 50%;
+    left: 45%;
     transform: translate(-50%);
     z-index: 1;
 }
